@@ -1,0 +1,53 @@
+*, :after, :before
+  box-sizing border-box
+
+/*细黑*/
+@font-face {
+  font-family:'PingFangSC_sofiaSans';
+  src: url('//cdn.repository.webfont.com/webfonts/nomal/135159/47065/5e0d62bbf629d803f89b23ba.gif?r=126329147673');
+  src: url('//cdn.repository.webfont.com/webfonts/nomal/135159/47065/5e0d62bbf629d803f89b23ba.gif?r=126329147673?#iefix') format('embedded-opentype'), url('//cdn.repository.webfont.com/webfonts/nomal/135159/47065/5e0d62bbf629d803f89b23ba.png?r=126329147673') format('woff2'), url('//cdn.repository.webfont.com/webfonts/nomal/135159/47065/5e0d62bbf629d803f89b23ba.bmp?r=126329147673') format('woff'), url('//cdn.repository.webfont.com/webfonts/nomal/135159/47065/5e0d62bbf629d803f89b23ba.jpg?r=126329147673') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.p-ping-fang-sofia-sans {
+  font-family: 'PingFangSC_sofiaSans';
+}
+
+/*黑体*/
+@font-face {
+  font-family:'PingFangSC_boldface';
+  src: url('//cdn.repository.webfont.com/webfonts/nomal/135159/47017/5e0d62e2f629d803f89b23bb.gif?r=126329187391');
+  src: url('//cdn.repository.webfont.com/webfonts/nomal/135159/47017/5e0d62e2f629d803f89b23bb.gif?r=126329187391?#iefix') format('embedded-opentype'), url('//cdn.repository.webfont.com/webfonts/nomal/135159/47017/5e0d62e2f629d803f89b23bb.png?r=126329187391') format('woff2'), url('//cdn.repository.webfont.com/webfonts/nomal/135159/47017/5e0d62e2f629d803f89b23bb.bmp?r=126329187391') format('woff'), url('//cdn.repository.webfont.com/webfonts/nomal/135159/47017/5e0d62e2f629d803f89b23bb.jpg?r=126329187391') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.p-ping-fang-boldface {
+  font-family: 'PingFangSC_boldface';
+}
+
+body
+  position relative
+  font-family 'PingFangSC_boldface'
+
+.page
+  .theme-default-content, .page-nav
+    max-width 1336px
+
+.theme-default-content
+  h1, h2, h3
+    margin-bottom 16px
+    padding-bottom 16px
+  h4
+    margin-bottom 12px !important
+  > p
+    padding-top 12px
+  .custom-block-title
+    margin-bottom 4px
+
+.custom-block.tip, .custom-block.warning, .custom-block.danger
+  padding-top 16px
+  padding-bottom 16px
+
+.p-table-layout
+  tr:nth-child(2n)
+    background none

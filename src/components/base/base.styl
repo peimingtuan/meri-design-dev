@@ -1,0 +1,102 @@
+*,
+:after,
+:before
+  box-sizing border-box
+
+@-ms-viewport
+  width device-width
+
+body, html
+  width 100%
+  height 100%
+
+
+body, figure, h1, h2, h3, h4, h5, h6, p, pre
+  margin 0
+
+dl, ol, ul
+  margin 0
+  padding-left 0
+
+li
+  list-style none
+
+dd
+  margin-left 0
+
+a
+  text-decoration none
+  color $blue-500
+
+table
+  border-collapse collapse
+
+button, fieldset, input, legend, optgroup, select, td, textarea
+  padding 0
+
+fieldset
+  margin 0
+  border 0
+
+button
+  outline 0
+
+
+input::-ms-clear,
+input::-ms-reveal
+  display none
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button
+  appearance none
+
+::-webkit-scrollbar
+  width 6px
+  height @width
+
+::-webkit-scrollbar-track
+  border-radius 0
+
+::-webkit-scrollbar-thumb
+  background-color $grey-400
+  border-radius 3px
+  &:hover
+    background-color $grey-500
+
+
+/* svg fill/stroke的颜色 */
+.svg-fill-grey-800
+  fill $grey-800
+.svg-stroke-grey-800
+  stroke $grey-800
+.svg-fill-grey-500
+  fill $grey-500
+.svg-stroke-grey-500
+  stroke $grey-500
+.svg-fill-grey-400
+  fill $grey-400
+.svg-stroke-grey-400
+  stroke $grey-400
+.svg-stroke-grey-50
+  stroke $grey-50
+
+.svg-fill-blue-500
+  fill $blue-500
+.svg-stroke-blue-500
+  stroke $blue-500
+
+.svg-fill-green-500
+  fill $green-500
+.svg-fill-green-300
+  fill $green-300
+.svg-fill-green-100
+  fill $green-100
+
+.svg-fill-red-500
+  fill $red-500
+.svg-fill-red-400
+  fill $red-400
+
+.svg-fill-white
+  fill $white
+.svg-stroke-white
+  stroke $white

@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TableTree 树形表格 | meri-design-dev</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="博锐尚格ui组件使用文档">
+    
+    <link rel="preload" href="/assets/css/0.styles.c932598c.css" as="style"><link rel="preload" href="/assets/js/app.0f4b3926.js" as="script"><link rel="preload" href="/assets/js/2.98a06d25.js" as="script"><link rel="preload" href="/assets/js/65.b18af985.js" as="script"><link rel="prefetch" href="/assets/js/10.8576e304.js"><link rel="prefetch" href="/assets/js/11.9e25ae74.js"><link rel="prefetch" href="/assets/js/12.f5f1fe41.js"><link rel="prefetch" href="/assets/js/13.0767dd5c.js"><link rel="prefetch" href="/assets/js/14.ebb3ff13.js"><link rel="prefetch" href="/assets/js/15.554f5f03.js"><link rel="prefetch" href="/assets/js/16.95263cff.js"><link rel="prefetch" href="/assets/js/17.f7d1a4b6.js"><link rel="prefetch" href="/assets/js/18.dbf62ab4.js"><link rel="prefetch" href="/assets/js/19.bd1b3e3d.js"><link rel="prefetch" href="/assets/js/20.a82edc8c.js"><link rel="prefetch" href="/assets/js/21.b23fa261.js"><link rel="prefetch" href="/assets/js/22.d6327636.js"><link rel="prefetch" href="/assets/js/23.5191c467.js"><link rel="prefetch" href="/assets/js/24.253d12f4.js"><link rel="prefetch" href="/assets/js/25.fd4d6d3e.js"><link rel="prefetch" href="/assets/js/26.4737060c.js"><link rel="prefetch" href="/assets/js/27.22a7d353.js"><link rel="prefetch" href="/assets/js/28.dd48996c.js"><link rel="prefetch" href="/assets/js/29.01f94322.js"><link rel="prefetch" href="/assets/js/3.e2d3ff17.js"><link rel="prefetch" href="/assets/js/30.7f2321c0.js"><link rel="prefetch" href="/assets/js/31.62c2af2d.js"><link rel="prefetch" href="/assets/js/32.df6c42e5.js"><link rel="prefetch" href="/assets/js/33.4a39ad94.js"><link rel="prefetch" href="/assets/js/34.1ca35536.js"><link rel="prefetch" href="/assets/js/35.58a8e310.js"><link rel="prefetch" href="/assets/js/36.2f1e54b3.js"><link rel="prefetch" href="/assets/js/37.b66686d5.js"><link rel="prefetch" href="/assets/js/38.2509eabe.js"><link rel="prefetch" href="/assets/js/39.b01fb766.js"><link rel="prefetch" href="/assets/js/4.1a66202b.js"><link rel="prefetch" href="/assets/js/40.f29698da.js"><link rel="prefetch" href="/assets/js/41.18bbc19c.js"><link rel="prefetch" href="/assets/js/42.c1c6e38a.js"><link rel="prefetch" href="/assets/js/43.f28a07c7.js"><link rel="prefetch" href="/assets/js/44.c009d44b.js"><link rel="prefetch" href="/assets/js/45.1988a6e9.js"><link rel="prefetch" href="/assets/js/46.16834d4e.js"><link rel="prefetch" href="/assets/js/47.22cfdf5b.js"><link rel="prefetch" href="/assets/js/48.1754e6f5.js"><link rel="prefetch" href="/assets/js/49.f643d796.js"><link rel="prefetch" href="/assets/js/5.b38b247b.js"><link rel="prefetch" href="/assets/js/50.c5d6dbef.js"><link rel="prefetch" href="/assets/js/51.075b39cd.js"><link rel="prefetch" href="/assets/js/52.8762dcf1.js"><link rel="prefetch" href="/assets/js/53.f30bb9ab.js"><link rel="prefetch" href="/assets/js/54.564684da.js"><link rel="prefetch" href="/assets/js/55.c2fb2a37.js"><link rel="prefetch" href="/assets/js/56.4e378b47.js"><link rel="prefetch" href="/assets/js/57.4cc8a100.js"><link rel="prefetch" href="/assets/js/58.de5302dc.js"><link rel="prefetch" href="/assets/js/59.7751a178.js"><link rel="prefetch" href="/assets/js/6.3213bcaf.js"><link rel="prefetch" href="/assets/js/60.98e6dd90.js"><link rel="prefetch" href="/assets/js/61.3e693c19.js"><link rel="prefetch" href="/assets/js/62.dd290cad.js"><link rel="prefetch" href="/assets/js/63.574bbb5c.js"><link rel="prefetch" href="/assets/js/64.6973bc73.js"><link rel="prefetch" href="/assets/js/66.24a7bacb.js"><link rel="prefetch" href="/assets/js/67.24232a3a.js"><link rel="prefetch" href="/assets/js/68.0cdbe1c4.js"><link rel="prefetch" href="/assets/js/69.99e10324.js"><link rel="prefetch" href="/assets/js/7.508004fb.js"><link rel="prefetch" href="/assets/js/8.f918ac6c.js"><link rel="prefetch" href="/assets/js/9.38495ed6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c932598c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo_persagy.png" alt="meri-design-dev" class="logo"> <span class="site-name can-hide">meri-design-dev</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="http://www.persagy.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博锐尚格
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="http://www.persagy.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博锐尚格
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/" aria-current="page" class="sidebar-link">首页</a></li><li><a href="/guide/" aria-current="page" class="sidebar-link">使用说明</a></li><li><a href="/guide/log/" class="sidebar-link">更新日志</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/avatar/" class="sidebar-link">Avatar 头像</a></li><li><a href="/guide/badge/" class="sidebar-link">Badge 徽标</a></li><li><a href="/guide/breadcrumb/" class="sidebar-link">Breadcrumb 面包屑</a></li><li><a href="/guide/button/" class="sidebar-link">Button 按钮</a></li><li><a href="/guide/cascader/" class="sidebar-link">Cascader 级联选择器</a></li><li><a href="/guide/cascaderSearchList/" class="sidebar-link">CascaderSearchList 列表选择器</a></li><li><a href="/guide/checkbox/" class="sidebar-link">Checkbox 复选框</a></li><li><a href="/guide/checkboxGroup/" class="sidebar-link">CheckboxGroup 复选框组</a></li><li><a href="/guide/customTreeSelectEnergy/" class="sidebar-link">CustomTreeSelectEnergy 运行能耗诊断弹窗选择器</a></li><li><a href="/guide/divider/" class="sidebar-link">Divider 分割线</a></li><li><a href="/guide/drawer/" class="sidebar-link">Drawer 抽屉</a></li><li><a href="/guide/dropdown/" class="sidebar-link">Dropdown 下拉菜单</a></li><li><a href="/guide/dropDownButton/" class="sidebar-link">DropDownButton 按钮</a></li><li><a href="/guide/dropGroup/" class="sidebar-link">DropGroup 下拉菜单组</a></li><li><a href="/guide/editable/" class="sidebar-link">Editable 可编辑列表</a></li><li><a href="/guide/editableList/" class="sidebar-link">EditableList 可编辑列表+子项</a></li><li><a href="/guide/emptyStatus/" class="sidebar-link">EmptyStatus 空状态</a></li><li><a href="/guide/fileUpload/" class="sidebar-link">FileUpload 文件上传组件</a></li><li><a href="/guide/headers/" class="sidebar-link">Headers 头部组合</a></li><li><a href="/guide/icon/" class="sidebar-link">Icon 图标</a></li><li><a href="/guide/imageUpload/" class="sidebar-link">ImageUpload 图片上传组件</a></li><li><a href="/guide/indexLoading/" class="sidebar-link">IndexLoading 首屏加载</a></li><li><a href="/guide/input/" class="sidebar-link">Input 输入框</a></li><li><a href="/guide/inputNumber/" class="sidebar-link">InputNumber 数字输入框</a></li><li><a href="/guide/loading/" class="sidebar-link">loading-加载中</a></li><li><a href="/guide/mCascade/" class="sidebar-link">MCascade-级联选择</a></li><li><a href="/guide/message/" class="sidebar-link">Message 全局提示</a></li><li><a href="/guide/modal/" class="sidebar-link">Modal 对话框</a></li><li><a href="/guide/mSelect/" class="sidebar-link">MSelect 下拉选择v2</a></li><li><a href="/guide/multipleSearchInput/" class="sidebar-link">MultipleSearchInput 多维度选择器 - 开发板</a></li><li><a href="/guide/pagination/" class="sidebar-link">Pagination 分页</a></li><li><a href="/guide/pickerDate/" class="sidebar-link">PickerDate 日期选择</a></li><li><a href="/guide/pickerMonth/" class="sidebar-link">PickerMonth 月选择（业务型）</a></li><li><a href="/guide/pickerMonthDay/" class="sidebar-link">PickerMonthDay 月日选择器</a></li><li><a href="/guide/pickerTime/" class="sidebar-link">PickerTime 时分秒选择</a></li><li><a href="/guide/popover/" class="sidebar-link">Popover 气泡框</a></li><li><a href="/guide/popoverTip/" class="sidebar-link">PopoverTip 提示列表</a></li><li><a href="/guide/pTree/" class="sidebar-link">PTree 树形结构-(平铺渲染)v2</a></li><li><a href="/guide/pTreeSelect/" class="sidebar-link">PTreeSelect 树形下拉列表</a></li><li><a href="/guide/radio/" class="sidebar-link">Radio 单选框</a></li><li><a href="/guide/radioGroup/" class="sidebar-link">RadioGroup 单选组</a></li><li><a href="/guide/select/" class="sidebar-link">Select 下拉选择器</a></li><li><a href="/guide/sidebarCustom/" class="sidebar-link">SidebarCustom 自定义侧边栏</a></li><li><a href="/guide/table/" class="sidebar-link">Table 表格</a></li><li><a href="/guide/tableGrid/" class="sidebar-link">TableGrid 表格v2</a></li><li><a href="/guide/tableTree/" aria-current="page" class="active sidebar-link">TableTree 树形表格</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guide/tHead/" class="sidebar-link">THead 表头 - 开发板</a></li><li><a href="/guide/tabs/" class="sidebar-link">Tabs 标签页</a></li><li><a href="/guide/tag/" class="sidebar-link">Tag 标签</a></li><li><a href="/guide/toggle/" class="sidebar-link">Toggle 开关</a></li><li><a href="/guide/tooltip/" class="sidebar-link">Tooltip 标签页</a></li><li><a href="/guide/topNotification/" class="sidebar-link">TopNotification 置顶条</a></li><li><a href="/guide/transfer/" class="sidebar-link">Transfer 穿梭框</a></li><li><a href="/guide/transferEquipment/" class="sidebar-link">TransferEquipment 针对设备设施项目的穿梭框</a></li><li><a href="/guide/transferSelectModal/" class="sidebar-link">Transfer 穿梭框</a></li><li><a href="/guide/tree/" class="sidebar-link">Tree 树形结构</a></li><li><a href="/guide/treeBi/" class="sidebar-link">TreeBi 针对BI项目的树形结构</a></li><li><a href="/guide/treePersonOrg/" class="sidebar-link">TreePersonOrg 树形结构业务组件</a></li><li><a href="/guide/treeSelect/" class="sidebar-link">TreeSelect树下拉选择</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="tabletree-树形表格"><a href="#tabletree-树形表格" class="header-anchor">#</a> TableTree 树形表格</h3> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>第二版Table树形结构<br></p></div> <h4 id="_1-width-border-setting-fixed"><a href="#_1-width-border-setting-fixed" class="header-anchor">#</a> 1.width + border + setting + fixed</h4> <div class="p-table-tree p-table-layout p-table-layout-border" style="width:1200px;"><!----> <div class="p-table-layout-loading" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" class="v-svg-tableLoading"><g><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 40 40" to="360 40 40" dur="2s" repeatCount="indefinite"></animateTransform> <circle cx="40" cy="40" r="31" stroke-width="4" fill="none" stroke="#0091ff" class="svg-stroke-blue-500"><animate attributeType="xml" attributeName="stroke-dasharray" values="1,360;130,360;130,360" dur="1.5s" repeatCount="indefinite"></animate> <animate attributeType="xml" attributeName="stroke-dashoffset" values="0;-50;-300" dur="1.5s" repeatCount="indefinite"></animate></circle></g></svg></div> <div class="p-table-top-handle"><!----></div> <!----></div> <details class="custom-block details"><summary>查看示例</summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TableTree</span>
+        <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1000<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:maxHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>height<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:border</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:setting</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:header</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>header1<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data1<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:statistics</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>statistics<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:rowTools</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>rowTools<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">@sortHandle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>sortHandle<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">@select</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>selectHandle<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">@screenHandle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>screenHandle<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">@rowClick</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>rowClick<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tableTree1<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">/&gt;</span></span>
+
+const header = [
+  {
+      key: 'name',
+      text: '项目名称',
+      fixed: 'left',
+      width: 300,
+      resizable: true
+  },
+  {
+      key: 'date',
+      text: '日期',
+      width: 160
+  },
+  {
+      key: 'strategyStatus',
+      text: '策略状态',
+      align: 'right',
+      tip: {
+          open: true,
+          text: '策略状态包括已执行、未执行、审核中、已审批'
+      },
+      resizable: true,
+      minWidth: 100,
+      screen: {
+          open: true,
+          status: 'multiple',
+          data: [
+              {
+                  id: 'executed',
+                  name: '已执行',
+                  checked: 'checked'
+              },
+              {
+                  id: 'non-execution',
+                  name: '未执行',
+                  checked: 'checked'
+              },
+              {
+                  id: 'audit',
+                  name: '审核中'
+              },
+              {
+                  id: 'has-approval',
+                  name: '已审批'
+              }
+          ],
+          event: 'screenHandle'
+      },
+      width: 240
+  },
+  {
+      key: 'strategyTime',
+      text: '策略推送时间',
+      screen: {
+          open: true,
+          status: 'multiple',
+          data: [
+              {
+                  id: 'all',
+                  name: '全部'
+              },
+              {
+                  id: '06:30',
+                  name: '06:30'
+              },
+              {
+                  id: '06:31',
+                  name: '06:31'
+              },
+              {
+                  id: '06:32',
+                  name: '06:32'
+              },
+              {
+                  id: '06:33',
+                  name: '06:33'
+              }
+          ],
+          event: 'screenHandle'
+      }
+  },
+  {
+      key: 'executeTime',
+      text: '应执行时间',
+      checked: 'uncheck'
+  },
+  {
+      key: 'dataStatus',
+      text: '数据状态',
+      tip: {
+          open: true,
+          text: '1.室外平均温度=逐日营业时段室外平均温度均'
+      }
+  },
+  {
+      key: 'viscosityTemperature',
+      text: '室内最高温度(℃)',
+      tip: {
+          open: true,
+          text: '2.室外平均温度=逐日营业时段室外平均温度均'
+      }
+  },
+  {
+      key: 'outdoorTemperature',
+      text: '室外温度(℃)',
+      tip: {
+          open: true,
+          text: '3.室外平均温度=逐日营业时段室外平均温度'
+      },
+      align: 'right',
+      sort: {
+          open: true,
+          status: 'ord',
+          type: 'number',
+          event: 'sortHandle',
+          closeDefault: true
+      }
+  }
+];
+
+const data = [
+      {
+          id: '000',
+          name: { text: '青阳万达广场0青阳万达广场0青阳万达广场0青阳万达广场0青阳万达广场0' },
+          date: { text: '2020.08.10' },
+          strategyStatus: {
+              text: '已执行',
+              dot: '#4eb1fd'
+          },
+          strategyTime: {
+              text: '06:30',
+              arrow: { dir: 'down' }
+          },
+          executeTime: { text: '01:10' },
+          dataStatus: {
+              text: '异常',
+              color: '#f00',
+              link: true
+          },
+          viscosityTemperature: { text: 20 },
+          outdoorTemperature: { text: 30 },
+          link: true,
+          selected: true,
+          tools: {
+              data: [
+                  { id: 'tjbm', name: '添加部门', disabled: true },
+                  { id: 'tjgw', name: '添加岗位', disabled: true },
+                  { id: 'bj', name: '编辑' },
+                  { id: 'sc', name: '删除' }
+              ],
+              moreOpen: true,
+              moreId: '',
+              more: [
+                  { id: 'm1', name: 'more1', disabled: true },
+                  { id: 'm2', name: 'more2' },
+                  { id: 'm3', name: 'more3' }
+              ]
+          },
+          children: [
+              {
+                  id: '000-1',
+                  name: { text: '青阳万达广场0-1' },
+                  date: { text: '2020.08.10' },
+                  strategyStatus: {
+                      text: '已执行',
+                      dot: '#4eb1fd'
+                  },
+                  strategyTime: { text: '06:30' },
+                  executeTime: { text: '01:10' },
+                  dataStatus: {
+                      text: '异常',
+                      color: '#f00'
+                  },
+                  viscosityTemperature: { text: 20 },
+                  outdoorTemperature: { text: 30 },
+                  tools: {
+                      data: [
+                          { id: 'tjbm', name: '添加部门' },
+                          { id: 'tjgw', name: '添加岗位' },
+                          { id: 'bj', name: '编辑' },
+                          { id: 'sc', name: '删除' }
+                      ]
+                  },
+                  children: [
+                      {
+                          id: '0001-1',
+                          name: { text: '青阳万达广场01-1' },
+                          date: { text: '2020.08.11' },
+                          strategyStatus: {
+                              text: '未执行',
+                              dot: '#f76b64'
+                          },
+                          strategyTime: { text: '06:31' },
+                          executeTime: { text: '01:11' },
+                          dataStatus: { text: '正常1' },
+                          viscosityTemperature: { text: 21 },
+                          outdoorTemperature: { text: 31 },
+                          tools: {
+                              data: [
+                                  { id: 'tjbm', name: '添加部门' },
+                                  { id: 'tjgw', name: '添加岗位' },
+                                  { id: 'bj', name: '编辑' },
+                                  { id: 'sc', name: '删除' }
+                              ]
+                          }
+                      }
+                  ]
+              },
+              {
+                  id: '001-2',
+                  name: { text: '青阳万达广场1-1' },
+                  date: { text: '2020.08.11' },
+                  strategyStatus: {
+                      text: '未执行',
+                      dot: '#f76b64'
+                  },
+                  strategyTime: { text: '06:31' },
+                  executeTime: { text: '01:11' },
+                  dataStatus: { text: '正常1' },
+                  viscosityTemperature: { text: 21 },
+                  outdoorTemperature: { text: 31 },
+                  tools: {
+                      data: [
+                          { id: 'tjbm', name: '添加部门' },
+                          { id: 'tjgw', name: '添加岗位' },
+                          { id: 'bj', name: '编辑' },
+                          { id: 'sc', name: '删除' }
+                      ]
+                  }
+              },
+              {
+                  id: '002-3',
+                  name: { text: '青阳万达广场2-1' },
+                  date: { text: '2020.08.12' },
+                  strategyStatus: {
+                      text: '审核中',
+                      dot: '#14e1c6'
+                  },
+                  strategyTime: { text: '06:32' },
+                  executeTime: { text: '01:12' },
+                  dataStatus: { text: '正常2' },
+                  viscosityTemperature: { text: 22 },
+                  outdoorTemperature: { text: 32 },
+                  tools: {
+                      data: [
+                          { id: 'tjbm', name: '添加部门' },
+                          { id: 'tjgw', name: '添加岗位' },
+                          { id: 'bj', name: '编辑' },
+                          { id: 'sc', name: '删除' }
+                      ]
+                  }
+              },
+              {
+                  id: '003-4',
+                  name: { text: '青阳万达广场3-1' },
+                  date: { text: '2020.08.13' },
+                  strategyStatus: {
+                      text: '已审批',
+                      dot: '#62d256'
+                  },
+                  strategyTime: { text: '06:33' },
+                  executeTime: { text: '01:13' },
+                  dataStatus: { text: '正常3' },
+                  viscosityTemperature: { text: 23 },
+                  outdoorTemperature: { text: 33 },
+                  tools: {
+                      data: [
+                          { id: 'tjbm', name: '添加部门' },
+                          { id: 'tjgw', name: '添加岗位' },
+                          { id: 'bj', name: '编辑' },
+                          { id: 'sc', name: '删除' }
+                      ]
+                  }
+              },
+              {
+                  id: '004-5',
+                  name: { text: '青阳万达广场4-1' },
+                  date: { text: '2020.08.14' },
+                  strategyStatus: {
+                      text: '已执行',
+                      dot: '#4eb1fd'
+                  },
+                  strategyTime: { text: '06:34' },
+                  executeTime: { text: '01:14' },
+                  dataStatus: { text: '正常4' },
+                  viscosityTemperature: { text: 24 },
+                  outdoorTemperature: { text: 34 },
+                  tools: {
+                      data: [
+                          { id: 'tjbm', name: '添加部门' },
+                          { id: 'tjgw', name: '添加岗位' },
+                          { id: 'bj', name: '编辑' },
+                          { id: 'sc', name: '删除' }
+                      ]
+                  }
+              }
+          ]
+      },
+      {
+          id: '001',
+          name: { text: '青阳万达广场1' },
+          date: { text: '2020.08.11' },
+          strategyStatus: {
+              text: '未执行',
+              dot: '#f76b64'
+          },
+          strategyTime: {
+              text: '06:31',
+              arrow: { dir: 'up' }
+          },
+          executeTime: { text: '01:11' },
+          dataStatus: { text: '正常1' },
+          viscosityTemperature: { text: 21 },
+          outdoorTemperature: { text: 31 },
+          tools: {
+              data: [
+                  { id: 'tjbm', name: '添加部门' },
+                  { id: 'tjgw', name: '添加岗位' },
+                  { id: 'bj', name: '编辑' },
+                  { id: 'sc', name: '删除' }
+              ]
+          }
+      },
+      {
+          id: '002',
+          name: { text: '青阳万达广场2' },
+          date: { text: '2020.08.12' },
+          strategyStatus: {
+              text: '审核中',
+              dot: '#14e1c6'
+          },
+          strategyTime: { text: '06:32' },
+          executeTime: { text: '01:12' },
+          dataStatus: { text: '正常2' },
+          viscosityTemperature: { text: 22 },
+          outdoorTemperature: { text: 32 },
+          tools: {
+              data: [
+                  { id: 'tjbm', name: '添加部门' },
+                  { id: 'tjgw', name: '添加岗位' },
+                  { id: 'bj', name: '编辑' },
+                  { id: 'sc', name: '删除' }
+              ]
+          },
+          children: [
+              {
+                  id: '002-1',
+                  name: { text: '青阳万达广场2-1' },
+                  date: { text: '2020.08.12' },
+                  strategyStatus: {
+                      text: '审核中',
+                      dot: '#14e1c6'
+                  },
+                  strategyTime: { text: '06:32' },
+                  executeTime: { text: '01:12' },
+                  dataStatus: { text: '正常2' },
+                  viscosityTemperature: { text: 22 },
+                  outdoorTemperature: { text: 32 },
+                  tools: {
+                      data: [
+                          { id: 'tjbm', name: '添加部门' },
+                          { id: 'tjgw', name: '添加岗位' },
+                          { id: 'bj', name: '编辑' },
+                          { id: 'sc', name: '删除' }
+                      ]
+                  }
+              },
+              {
+                  id: '002-2',
+                  name: { text: '青阳万达广场2-2' },
+                  date: { text: '2020.08.12' },
+                  strategyStatus: {
+                      text: '审核中',
+                      dot: '#14e1c6'
+                  },
+                  strategyTime: { text: '06:32' },
+                  executeTime: { text: '01:12' },
+                  dataStatus: { text: '正常2' },
+                  viscosityTemperature: { text: 22 },
+                  outdoorTemperature: { text: 32 },
+                  tools: {
+                      data: [
+                          { id: 'tjbm', name: '添加部门' },
+                          { id: 'tjgw', name: '添加岗位' },
+                          { id: 'bj', name: '编辑' },
+                          { id: 'sc', name: '删除' }
+                      ]
+                  }
+              }
+          ]
+      },
+      {
+          id: '003',
+          name: { text: '青阳万达广场3' },
+          date: { text: '2020.08.13' },
+          strategyStatus: {
+              text: '已审批',
+              dot: '#62d256'
+          },
+          strategyTime: { text: '06:33' },
+          executeTime: { text: '01:13' },
+          dataStatus: { text: '正常3' },
+          viscosityTemperature: { text: 23 },
+          outdoorTemperature: { text: 33 },
+          tools: {
+              data: [
+                  { id: 'tjbm', name: '添加部门' },
+                  { id: 'tjgw', name: '添加岗位' },
+                  { id: 'bj', name: '编辑' },
+                  { id: 'sc', name: '删除' }
+              ]
+          }
+      },
+      {
+          id: '004',
+          name: { text: '青阳万达广场4' },
+          date: { text: '2020.08.14' },
+          strategyStatus: {
+              text: '已执行',
+              dot: '#4eb1fd'
+          },
+          strategyTime: { text: '06:34' },
+          executeTime: { text: '01:14' },
+          dataStatus: { text: '正常4' },
+          viscosityTemperature: { text: 24 },
+          outdoorTemperature: { text: 34 },
+          tools: {
+              data: [
+                  { id: 'tjbm', name: '添加部门' },
+                  { id: 'tjgw', name: '添加岗位' },
+                  { id: 'bj', name: '编辑' },
+                  { id: 'sc', name: '删除' }
+              ]
+          }
+      }
+     ];
+const dataSelect = [
+    { id: 'test1', name: '选择项' },
+    { id: 'test2', name: '单平米' },
+    { id: 'test3', name: '下级分项' },
+    { id: 'test4', name: '滑动平均滑动平均' }
+];
+const rowTools = {
+    open: true, // 开启显示操作
+    fixed: 'right', // 与header数据的fixed一样
+    width: 380, // 与header数据的width一样
+    align: '', // 与header数据的align一样
+    text: '', // 头部显示的文字，默认是操作
+    moreOpen: true,
+    event: 'rowToolHandle'
+};
+const statistics = {
+    open: true,
+    id: 'statistics-id',
+    name: { text: '50' },
+    date: { text: '2020.08.11' },
+    strategyStatus: { text: '未执行', dot: '#f76b64' },
+    strategyTime: { text: '06:31' },
+    executeTime: { text: '01:11' },
+    dataStatus: { text: '正常1' },
+    viscosityTemperature: { text: 21 },
+    outdoorTemperature: { text: 31 }
+};
+</code></pre></div></details> <h4 id="业务场景下的数据"><a href="#业务场景下的数据" class="header-anchor">#</a> 业务场景下的数据</h4> <div class="p-table-tree p-table-layout" style="width:1000px;"><!----> <div class="p-table-layout-loading" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 80 80" class="v-svg-tableLoading"><g><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 40 40" to="360 40 40" dur="2s" repeatCount="indefinite"></animateTransform> <circle cx="40" cy="40" r="31" stroke-width="4" fill="none" stroke="#0091ff" class="svg-stroke-blue-500"><animate attributeType="xml" attributeName="stroke-dasharray" values="1,360;130,360;130,360" dur="1.5s" repeatCount="indefinite"></animate> <animate attributeType="xml" attributeName="stroke-dashoffset" values="0;-50;-300" dur="1.5s" repeatCount="indefinite"></animate></circle></g></svg></div> <div class="p-table-top-handle"><!----></div> <!----></div> <details class="custom-block details"><summary>查看示例</summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TableTree</span>
+        <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1000<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">maxHeight</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>400<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:header</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>header4<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data4<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tableTree4<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">/&gt;</span></span>
+
+const header4 = [
+    {
+        text: '管理分区',
+        key: 'managementRegionName',
+        width: 300,
+        fixed: 'left'
+    }, {
+        text: '实际能耗 (kWh)',
+        key: 'realEnergy',
+        width: 150
+    }, {
+        text: '单平米能耗 (kWh/m²)',
+        key: 'energyPerSquare'
+    }, {
+        text: '管控值',
+        key: 'gwData',
+        width: 100
+    }, {
+        text: '管控值',
+        key: 'gwData'
+    }, {
+        text: '实际能耗占管控值比',
+        key: 'realEnergyGwDataRatio'
+    }, {
+        text: '目标值 (kWh)',
+        key: 'target'
+    }, {
+        text: '能耗同比',
+        key: 'energySameRatio'
+    }, {
+        text: '能耗环比',
+        key: 'energyRingRatio'
+    },
+    {
+        text: '年累计实际能耗 (kWh)',
+        key: 'realEnergyYear'
+    }, {
+        text: '年总定额 (kWh)',
+        key: 'targetYear'
+    }, {
+        text: '年实际能耗占年总定额比',
+        key: 'realEnergyTargetYearRatio',
+        align: 'right',
+        fixed: 'right'
+    }
+];
+
+const data4 = [
+    {
+        id: 'dsgdsvgsfasgsgswtgw',
+        managementRegionName: { text: '东南运营中心' },
+        realEnergyTargetRatio: { text: '--' },
+        realEnergy: { text: '--' },
+        energyPerSquare: { text: '--' },
+        gwData: { text: '--' },
+        realEnergyGwDataRatio: { text: '--' },
+        target: { text: 3447397.05389872 },
+        energySameRatio: { text: '--' },
+        energyRingRatio: { text: '--' },
+        realEnergyYear: { text: 7314034.966831948 },
+        targetYear: { text: 26173088.85432993 },
+        realEnergyTargetYearRatio: { text: 27.94486736945439 },
+        children: [{
+            id: 'dsgdsvgsfasgsgswtgw1',
+            managementRegionName: { text: '厦门区域' },
+            realEnergyTargetRatio: { text: '--' },
+            realEnergy: { text: '--' },
+            energyPerSquare: { text: '--' },
+            gwData: { text: '--' },
+            realEnergyGwDataRatio: { text: '--' },
+            target: { text: 950534.2 },
+            energySameRatio: { text: '--' },
+            energyRingRatio: { text: '--' },
+            realEnergyYear: { text: 2410892.7057124395 },
+            targetYear: { text: 8098866.12620034 },
+            realEnergyTargetYearRatio: { text: 29.768274572573194 }
+        }, {
+            id: 'dsgdsvgsfasgsgswtgw22',
+            managementRegionName: { text: '宁波区域' },
+            realEnergyTargetRatio: { text: '--' },
+            realEnergy: { text: '--' },
+            energyPerSquare: { text: '--' },
+            gwData: { text: '--' },
+            realEnergyGwDataRatio: { text: '--' },
+            target: { text: 1783317.96029502 },
+            energySameRatio: { text: '--' },
+            energyRingRatio: { text: '--' },
+            realEnergyYear: { text: 3466341.062147084 },
+            targetYear: { text: 12811945.04586246 },
+            realEnergyTargetYearRatio: { text: 27.055541135547706 }
+        }, {
+            id: 'dsgdsvgsfasgsgswtgw33',
+            managementRegionName: { text: '杭州区域' },
+            realEnergyTargetRatio: { text: '--' },
+            realEnergy: { text: '--' },
+            energyPerSquare: { text: '--' },
+            gwData: { text: '--' },
+            realEnergyGwDataRatio: { text: '--' },
+            target: { text: 713544.8936037 },
+            energySameRatio: { text: '--' },
+            energyRingRatio: { text: '--' },
+            realEnergyYear: { text: 1436801.1989724236 },
+            targetYear: { text: 5262277.68226713 },
+            realEnergyTargetYearRatio: { text: 27.30378907624295 }
+        }]
+    }, {
+        id: 'df4gdf5g458df4g',
+        managementRegionName: { text: '华东运营中心' },
+        realEnergyTargetRatio: { text: '--' },
+        realEnergy: { text: '--' },
+        energyPerSquare: { text: '--' },
+        gwData: { text: '--' },
+        realEnergyGwDataRatio: { text: '--' },
+        target: { text: 3447397.05389872 },
+        energySameRatio: { text: '--' },
+        energyRingRatio: { text: '--' },
+        realEnergyYear: { text: 7314034.966831948 },
+        targetYear: { text: 26173088.85432993 },
+        realEnergyTargetYearRatio: { text: 27.94486736945439 },
+        children: [{
+            id: 'df4gdf5g458df4g1454df5',
+            managementRegionName: { text: '上海区域' },
+            realEnergyTargetRatio: { text: '--' },
+            realEnergy: { text: '--' },
+            energyPerSquare: { text: '--' },
+            gwData: { text: '--' },
+            realEnergyGwDataRatio: { text: '--' },
+            target: { text: 3048541.64233005 },
+            energySameRatio: { text: '--' },
+            energyRingRatio: { text: '--' },
+            realEnergyYear: { text: 6309564.76872908 },
+            targetYear: { text: 21168279.71687967 },
+            realEnergyTargetYearRatio: { text: 29.806695929560156 }
+        }, {
+            id: '45df4gdf4g5df45g',
+            managementRegionName: { text: '南京区域' },
+            realEnergyTargetRatio: { text: '--' },
+            realEnergy: { text: '--' },
+            energyPerSquare: { text: '--' },
+            gwData: { text: '--' },
+            realEnergyGwDataRatio: { text: '--' },
+            target: { text: 1692574.95238982 },
+            energySameRatio: { text: '--' },
+            energyRingRatio: { text: '--' },
+            realEnergyYear: { text: 3346657.6507607647 },
+            targetYear: { text: 11669360.48980841 },
+            realEnergyTargetYearRatio: { text: 28.679015046999467 }
+        }, {
+            id: 'ds4gds5g45ds5g',
+            managementRegionName: { text: '无锡区域' },
+            realEnergyTargetRatio: { text: '--' },
+            realEnergy: { text: '--' },
+            energyPerSquare: { text: '--' },
+            gwData: { text: '--' },
+            realEnergyGwDataRatio: { text: '--' },
+            target: { text: 2523691.30765399 },
+            energySameRatio: { text: '--' },
+            energyRingRatio: { text: '--' },
+            realEnergyYear: { text: 4569474.08776884 },
+            targetYear: { text: 17006533.38101439 },
+            realEnergyTargetYearRatio: { text: 26.86893316465112 }
+        }]
+    }
+];
+</code></pre></div></details> <h4 id="自定义渲染-详见tablegrid自定义渲染"><a href="#自定义渲染-详见tablegrid自定义渲染" class="header-anchor">#</a> 自定义渲染 —— 详见TableGrid自定义渲染</h4> <h4 id="methods"><a href="#methods" class="header-anchor">#</a> methods</h4> <details class="custom-block details"><summary>查看示例</summary> <div class="language-vue extra-class"><pre class="language-vue"><code>methods: {
+    // 筛选
+    screenHandle(key, id) {
+        console.log('筛选::', key, id);
+    },
+    // 排序回调
+    sortHandle(status, key) {
+        console.log('status::', status, '  ', 'key::', key);
+    },
+    // 选中的数据
+    selectHandle(ids, data) {
+        console.log(ids, data);
+    },
+    // 顶部按钮回调
+    topButtonHandle(id) {
+        console.log('顶部按钮回调::', id);
+    },
+    // 每列操作回调
+    rowToolHandle({ itemId, toolId }) {
+        console.log('每列操作回调::', itemId, toolId);
+    },
+
+    dataSelectChange(data) {
+        console.log(data);
+    },
+    // 点击每行
+    rowClick(item) {
+        console.log('点击每行::', item);
+    }
+}
+</code></pre></div></details> <h3 id="attributes"><a href="#attributes" class="header-anchor">#</a> Attributes</h3> <table><thead><tr><th>参数</th> <th>说明</th> <th>类型</th> <th>默认值</th> <th>必须</th></tr></thead> <tbody><tr><td>width</td> <td>宽度(如果设置为<code>100%</code>，组件会基于父级标签撑满并自动分配没有设置固定宽度的列的宽度)</td> <td>String/Number</td> <td>500</td> <td>no</td></tr> <tr><td>height</td> <td>高度</td> <td>String</td> <td>auto</td> <td>no</td></tr> <tr><td>maxHeight</td> <td>最大高度</td> <td>String</td> <td>''</td> <td>no</td></tr> <tr><td>loading</td> <td>设置loading</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>border</td> <td>是否显示竖向边框</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>setting</td> <td>开启设置</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>draggable</td> <td>开启设置列表可多动排序</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>sortAjax</td> <td>是否后端排序</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>header</td> <td>table头部数据</td> <td>Array</td> <td>[]</td> <td>yes</td></tr> <tr><td>statistics</td> <td>行头数据，详见以下statistics说明</td> <td>Object</td> <td>{}</td> <td>no</td></tr> <tr><td>data</td> <td>table主体数据</td> <td>Array</td> <td>[]</td> <td>no</td></tr> <tr><td>topButton</td> <td>头部选中数据的操作按钮组</td> <td>Array</td> <td>[]</td> <td>no</td></tr> <tr><td>rowTools</td> <td>每行的回调工具</td> <td>Object</td> <td>[]</td> <td>no</td></tr> <tr><td>average</td> <td>每列的默认宽度</td> <td>Number, String</td> <td>80</td> <td>no</td></tr> <tr><td>render</td> <td>设置用户渲染数据，设置为custom表示自定义渲染</td> <td>String</td> <td>''</td> <td>no</td></tr> <tr><td>openSelect</td> <td>开启选中单行效果</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>@select</td> <td>checkbox状态改变回调</td> <td>Function</td> <td>(status) =&gt; {}</td> <td>no</td></tr> <tr><td>@resizableHandle</td> <td>当前拖动的宽度</td> <td>Function</td> <td>(w, colWidth) =&gt; {}</td> <td>no</td></tr> <tr><td>@rowClick</td> <td>点击行的回调，注意 需要设置data中的link为true</td> <td>Function</td> <td>(item) =&gt; {}</td> <td>no</td></tr> <tr><td>@settingChange</td> <td>点击设置确定的回调，type返回confirm</td> <td>Function</td> <td>(item, type) =&gt; {}</td> <td>no</td></tr> <tr><td>@settingCancel</td> <td>点击设置底部按钮的回调，type返回cancel</td> <td>Function</td> <td>(type) =&gt; {}</td> <td>no</td></tr> <tr><td>@settingReset</td> <td>点击设置底部按钮的回调，type返回reset</td> <td>Function</td> <td>(type) =&gt; {}</td> <td>no</td></tr> <tr><td>key</td> <td>唯一标识符，当一个标签下使用多个TableTree时，建议加上该属性</td> <td>String</td> <td>''</td> <td>no</td></tr></tbody></table> <h3 id="提示说明"><a href="#提示说明" class="header-anchor">#</a> 提示说明</h3> <div class="custom-block danger"><p class="custom-block-title">警告</p> <div class="language- extra-class"><pre><code>该组件单页在理论情况(即页面只存在TableTree) header数据为8条，data数据为400条渲染没毛病，当前情况下data数据达到500条会有明显卡顿，
+另外data数据条数包括父级和子级之和
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">建议</p> <div class="language- extra-class"><pre><code>为了更好的视觉效果：
+height和maxHeight只需设置一个即可
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">若需强制重置数据，请调用以下方法，以下方法会重新初始化并覆盖TableTree组件数据</p> <div class="language- extra-class"><pre><code>1.重置header数据：this.$refs.xxx.resetHeaderData(headerData);
+2.重置data数据：this.$refs.xxx.resetTableData(tableData);
+3.其他说明：
+    由于此组件初始化的时候会在mounted保存一次历史数据，后续操作会依赖保存的历史数据进行计算，
+    如需修改、重置数据可调用此方法
+</code></pre></div></div> <div class="custom-block warning"><p class="custom-block-title">注意</p> <div class="language- extra-class"><pre><code>1.event为自定义事件名称
+2.disabled设置禁用
+3.text为显示的字符串（内容）
+4.自定义事件返回的是传入的id值或状态
+5.若有自定义事件必须将事件传递给组件
+6.header数据中建议保留最后一项不设置固定宽度
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">header数据说明</p> <div class="language- extra-class"><pre><code> 1.item中的key属性值对应data中的key
+ 2.item中的sort设置排序规则，其中demo中所使用的[event: 'sortHandle']是组件提交给父级的自定义函数名称，
+    (1)用户可自行定义event名称，status 取值['', 'seq', 'ord']，默认为空、seq-正序、ord-倒序，设置closeDefault为true不支持回到默认;
+    (2)如果初始化传入的有多个排序，默认排序高亮状态以header数据中的第一个排序规则为准;
+    (3)默认是按照字符串排序，type取值范围`string/number/date`
+    (4)open-开启dom显示
+    (5)event-开启注册排序函数
+    (6)若需要默认排序，请设置一个status的值，如果组件在遍历的时候没有找到设置的status，默认不会进行排序
+ 3.item中的checked设置列显示隐藏，可选值['checked', 'uncheck']
+ 4.item中的align设置列对齐方式，可选值['left', 'right', 'center']
+ 5.item中的width设置宽度
+ 6.item中的tip设置提示信息，open设置显示隐藏，text表示提示的文字信息
+ 7.item中设置resizable: true开启拖动表头改变宽度
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">header.screen数据说明</p> <div class="language- extra-class"><pre><code> 1.open设置打开关闭状态，
+ 2.status设置筛选4种状态【'single', 'multiple', 'singleSearch', 'multipleSearch'】
+ 3.data设置列表
+    data数据示例 [{ id: 'xxx', name: 'xxx', checked: 'xxx' }]
+    checked设置选中，设置默认选中时-如果是单选条件下设置多个checked会以第一个选中的checked进行筛选
+    在单选条件下如果有name='全部'，需设置id为'all'或者空字符串
+ 4.event设置回调
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">statistics数据说明</p> <div class="language- extra-class"><pre><code>1.数据中的key对应header中key属性值，同以下data
+2.open设置显示统计数据
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">data数据说明</p> <div class="language- extra-class"><pre><code> 1.item中的key对应header中的key属性值
+ 2.item中key的text属性为table中显示的值；dot设置text左边显示点的颜色；color设置text的颜色；arrow设置箭头，arrow中的dir设置箭头方向，可选值['up', 'down']
+ 3.item中link设置鼠标指针为手型，并开启点击行回调
+ 4.item中open设置展开子集
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">data: tools数据格式 - 可参考TableGrid设置</p> <div class="language- extra-class"><pre><code> 1.data: [ // 操作数据
+     { id: 'tjbm', name: '添加部门', disabled: true },
+     { id: 'tjgw', name: '添加岗位', disabled: true },
+     { id: 'bj', name: '编辑' },
+     { id: 'sc', name: '删除' }
+ ],
+ 2.moreOpen: true, // 开启更多
+ 3.moreId: '',
+ 4.more: [ // 更多数据
+     { id: 'm1', name: 'more1', disabled: true },
+     { id: 'm2', name: 'more2' },
+     { id: 'm3', name: 'more3' }
+ ]
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">rowTools数据说明</p> <div class="language- extra-class"><pre><code> 1.icon表示Icon组件的name
+ 2.text为当前icon显示的名称
+ 3.event为自定义事件的名称
+ 4.disabled为是否禁用点击
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">topButton数据说明</p> <div class="language- extra-class"><pre><code> 1.type为Button组件的type属性
+ 2.text为当前icon显示的名称
+ 3.event为自定义事件的名称
+</code></pre></div></div> <div class="custom-block danger"><p class="custom-block-title">自定义内容（插槽）</p> <div class="language- extra-class"><pre><code> 返回参数
+ headerKey：header数据中的key
+ rowIndex：行索引
+ colIndex：列索引
+ item：当前项
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">配合SidebarCustom使用</p> <div class="language- extra-class"><pre><code> 当手动拖动SidebarCustom改变侧边栏宽度时，SidebarCustom会出发change事件，
+ 此时页面宽度改变需要手动调用TableGrid的重新计算列宽函数`this.$refs.xxx.resizeTableWidth()`
+</code></pre></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/tableGrid/" class="prev">
+        TableGrid 表格v2
+      </a></span> <span class="next"><a href="/guide/tHead/">
+        THead 表头 - 开发板
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.0f4b3926.js" defer></script><script src="/assets/js/2.98a06d25.js" defer></script><script src="/assets/js/65.b18af985.js" defer></script>
+  </body>
+</html>

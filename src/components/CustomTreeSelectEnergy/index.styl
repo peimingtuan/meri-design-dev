@@ -1,0 +1,172 @@
+@import '../static/stylus/animate/opacityInUiOut.styl'
+@import '../static/stylus/animate/bounceInUiOut.styl'
+
+.custom-tree-select-energy
+  display inline-block
+  font-size 0
+
+.custom-tree-select-shadow
+  position fixed
+  left 0
+  top 0
+  z-index 6000
+  background-color $theme-transparency
+  width 100%
+  height 100%
+
+.custom-tree-select-content
+  position fixed
+  left 50%
+  top 50%
+  z-index 6499
+  background-color $theme
+  border-radius 4px
+  box-shadow $modal-shadow-bottom
+  width 600px
+  height 538px
+  transition width .3s, height .3s
+@media (min-width: 1366px)
+  .custom-tree-select-content
+    width 840px
+    height 648px
+
+.custom-tree-select-head
+  display flex
+  justify-content space-between
+  padding 16px 28px 16px 32px
+  border-bottom 1px solid $grey-300
+  width 100%
+  height 56px
+.custom-tree-select-title
+  line-height 24px
+  font-size 16px
+  font-weight 500
+.custom-tree-select-close
+  width 24px
+  height @width
+  line-height @width
+  text-align center
+  cursor pointer
+  &:hover
+    svg
+      path
+        fill $blue-500
+  svg
+    vertical-align middle
+    width 16px
+    height 16px
+    path
+      transition fill .3s
+.custom-tree-select-body
+  display flex
+  width 100%
+  height calc(100% - 56px)
+.custom-tree-select-body-child
+  width 50%
+  .custom-tree-select-child-top
+    margin-bottom 4px
+    padding-top 4px
+    padding-bottom @padding-top
+    width 100%
+.custom-tree-select-tree
+  .custom-tree-select-child-top
+    padding-left 28px
+    padding-right 16px
+    border-bottom 1px solid $grey-300
+.custom-tree-select-search
+  position relative
+  display flex
+  width 100%
+  height 32px
+  svg
+    vertical-align middle
+    width 16px
+    height 16px
+    font-size 0
+    path
+      transition fill .3s
+.custom-tree-select-svg
+  width 24px
+  height 32px
+  line-height @height
+.custom-tree-select-input
+  outline none
+  background none
+  border 0
+  width calc(100% - 40px)
+  height 32px
+  line-height @height
+  font-size 14px
+.custom-tree-select-input-clear
+  width 20px
+  height 32px
+  line-height @height
+  text-align right
+  font-size 0
+  cursor pointer
+  &:hover
+    path
+      fill $blue-500
+.custom-tree-select-placeholder
+  position absolute
+  left 24px
+  top 0
+  z-index -1
+  width calc(100% - 40px)
+  height 32px
+  line-height @height
+  font-size 14px
+  color $grey-400
+.custom-tree-select-com
+  padding-left 12px
+  padding-right 12px
+  width 100%
+  height calc(100% - 48px)
+  overflow auto
+  content-visibility auto
+  scroll-behavior smooth
+.custom-tree-select-none
+  padding 16px
+  font-size 14px
+  color $grey-400
+
+.custom-tree-select-panel
+  border-left 1px solid $grey-300
+  .custom-tree-select-child-top
+    padding-left 12px
+    padding-right 28px
+    display flex
+    justify-content space-between
+    line-height 32px
+.custom-tree-select-choose
+  font-size 14px
+  color $grey-500
+  .custom-choose-count
+    padding-left 4px
+    color $grey-900
+    font-weight 500
+.custom-tree-select-clear
+  font-size 14px
+.custom-tree-select-clear-disabled
+  color $grey-400
+  cursor not-allowed
+.custom-tree-select-clear-active
+  color $blue-500
+  cursor pointer
+  &:active
+    color $blue-600
+.custom-tree-select-panel-list
+  padding-right 12px
+  width 100%
+  height calc(100% - 114px)
+  overflow auto
+.custom-tree-select-panel-handle
+  position relative
+  z-index 1
+  padding-top 16px
+  padding-bottom 20px
+  padding-right 28px
+  text-align right
+  width 100%
+.custom-tree-select-panel-handle-shadow
+  box-shadow $box-shadow-top

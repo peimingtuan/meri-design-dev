@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PTreeSelect 树形下拉列表 | meri-design-dev</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="博锐尚格ui组件使用文档">
+    
+    <link rel="preload" href="/assets/css/0.styles.c932598c.css" as="style"><link rel="preload" href="/assets/js/app.0f4b3926.js" as="script"><link rel="preload" href="/assets/js/2.98a06d25.js" as="script"><link rel="preload" href="/assets/js/56.4e378b47.js" as="script"><link rel="prefetch" href="/assets/js/10.8576e304.js"><link rel="prefetch" href="/assets/js/11.9e25ae74.js"><link rel="prefetch" href="/assets/js/12.f5f1fe41.js"><link rel="prefetch" href="/assets/js/13.0767dd5c.js"><link rel="prefetch" href="/assets/js/14.ebb3ff13.js"><link rel="prefetch" href="/assets/js/15.554f5f03.js"><link rel="prefetch" href="/assets/js/16.95263cff.js"><link rel="prefetch" href="/assets/js/17.f7d1a4b6.js"><link rel="prefetch" href="/assets/js/18.dbf62ab4.js"><link rel="prefetch" href="/assets/js/19.bd1b3e3d.js"><link rel="prefetch" href="/assets/js/20.a82edc8c.js"><link rel="prefetch" href="/assets/js/21.b23fa261.js"><link rel="prefetch" href="/assets/js/22.d6327636.js"><link rel="prefetch" href="/assets/js/23.5191c467.js"><link rel="prefetch" href="/assets/js/24.253d12f4.js"><link rel="prefetch" href="/assets/js/25.fd4d6d3e.js"><link rel="prefetch" href="/assets/js/26.4737060c.js"><link rel="prefetch" href="/assets/js/27.22a7d353.js"><link rel="prefetch" href="/assets/js/28.dd48996c.js"><link rel="prefetch" href="/assets/js/29.01f94322.js"><link rel="prefetch" href="/assets/js/3.e2d3ff17.js"><link rel="prefetch" href="/assets/js/30.7f2321c0.js"><link rel="prefetch" href="/assets/js/31.62c2af2d.js"><link rel="prefetch" href="/assets/js/32.df6c42e5.js"><link rel="prefetch" href="/assets/js/33.4a39ad94.js"><link rel="prefetch" href="/assets/js/34.1ca35536.js"><link rel="prefetch" href="/assets/js/35.58a8e310.js"><link rel="prefetch" href="/assets/js/36.2f1e54b3.js"><link rel="prefetch" href="/assets/js/37.b66686d5.js"><link rel="prefetch" href="/assets/js/38.2509eabe.js"><link rel="prefetch" href="/assets/js/39.b01fb766.js"><link rel="prefetch" href="/assets/js/4.1a66202b.js"><link rel="prefetch" href="/assets/js/40.f29698da.js"><link rel="prefetch" href="/assets/js/41.18bbc19c.js"><link rel="prefetch" href="/assets/js/42.c1c6e38a.js"><link rel="prefetch" href="/assets/js/43.f28a07c7.js"><link rel="prefetch" href="/assets/js/44.c009d44b.js"><link rel="prefetch" href="/assets/js/45.1988a6e9.js"><link rel="prefetch" href="/assets/js/46.16834d4e.js"><link rel="prefetch" href="/assets/js/47.22cfdf5b.js"><link rel="prefetch" href="/assets/js/48.1754e6f5.js"><link rel="prefetch" href="/assets/js/49.f643d796.js"><link rel="prefetch" href="/assets/js/5.b38b247b.js"><link rel="prefetch" href="/assets/js/50.c5d6dbef.js"><link rel="prefetch" href="/assets/js/51.075b39cd.js"><link rel="prefetch" href="/assets/js/52.8762dcf1.js"><link rel="prefetch" href="/assets/js/53.f30bb9ab.js"><link rel="prefetch" href="/assets/js/54.564684da.js"><link rel="prefetch" href="/assets/js/55.c2fb2a37.js"><link rel="prefetch" href="/assets/js/57.4cc8a100.js"><link rel="prefetch" href="/assets/js/58.de5302dc.js"><link rel="prefetch" href="/assets/js/59.7751a178.js"><link rel="prefetch" href="/assets/js/6.3213bcaf.js"><link rel="prefetch" href="/assets/js/60.98e6dd90.js"><link rel="prefetch" href="/assets/js/61.3e693c19.js"><link rel="prefetch" href="/assets/js/62.dd290cad.js"><link rel="prefetch" href="/assets/js/63.574bbb5c.js"><link rel="prefetch" href="/assets/js/64.6973bc73.js"><link rel="prefetch" href="/assets/js/65.b18af985.js"><link rel="prefetch" href="/assets/js/66.24a7bacb.js"><link rel="prefetch" href="/assets/js/67.24232a3a.js"><link rel="prefetch" href="/assets/js/68.0cdbe1c4.js"><link rel="prefetch" href="/assets/js/69.99e10324.js"><link rel="prefetch" href="/assets/js/7.508004fb.js"><link rel="prefetch" href="/assets/js/8.f918ac6c.js"><link rel="prefetch" href="/assets/js/9.38495ed6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c932598c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo_persagy.png" alt="meri-design-dev" class="logo"> <span class="site-name can-hide">meri-design-dev</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="http://www.persagy.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博锐尚格
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="http://www.persagy.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博锐尚格
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/" aria-current="page" class="sidebar-link">首页</a></li><li><a href="/guide/" aria-current="page" class="sidebar-link">使用说明</a></li><li><a href="/guide/log/" class="sidebar-link">更新日志</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/avatar/" class="sidebar-link">Avatar 头像</a></li><li><a href="/guide/badge/" class="sidebar-link">Badge 徽标</a></li><li><a href="/guide/breadcrumb/" class="sidebar-link">Breadcrumb 面包屑</a></li><li><a href="/guide/button/" class="sidebar-link">Button 按钮</a></li><li><a href="/guide/cascader/" class="sidebar-link">Cascader 级联选择器</a></li><li><a href="/guide/cascaderSearchList/" class="sidebar-link">CascaderSearchList 列表选择器</a></li><li><a href="/guide/checkbox/" class="sidebar-link">Checkbox 复选框</a></li><li><a href="/guide/checkboxGroup/" class="sidebar-link">CheckboxGroup 复选框组</a></li><li><a href="/guide/customTreeSelectEnergy/" class="sidebar-link">CustomTreeSelectEnergy 运行能耗诊断弹窗选择器</a></li><li><a href="/guide/divider/" class="sidebar-link">Divider 分割线</a></li><li><a href="/guide/drawer/" class="sidebar-link">Drawer 抽屉</a></li><li><a href="/guide/dropdown/" class="sidebar-link">Dropdown 下拉菜单</a></li><li><a href="/guide/dropDownButton/" class="sidebar-link">DropDownButton 按钮</a></li><li><a href="/guide/dropGroup/" class="sidebar-link">DropGroup 下拉菜单组</a></li><li><a href="/guide/editable/" class="sidebar-link">Editable 可编辑列表</a></li><li><a href="/guide/editableList/" class="sidebar-link">EditableList 可编辑列表+子项</a></li><li><a href="/guide/emptyStatus/" class="sidebar-link">EmptyStatus 空状态</a></li><li><a href="/guide/fileUpload/" class="sidebar-link">FileUpload 文件上传组件</a></li><li><a href="/guide/headers/" class="sidebar-link">Headers 头部组合</a></li><li><a href="/guide/icon/" class="sidebar-link">Icon 图标</a></li><li><a href="/guide/imageUpload/" class="sidebar-link">ImageUpload 图片上传组件</a></li><li><a href="/guide/indexLoading/" class="sidebar-link">IndexLoading 首屏加载</a></li><li><a href="/guide/input/" class="sidebar-link">Input 输入框</a></li><li><a href="/guide/inputNumber/" class="sidebar-link">InputNumber 数字输入框</a></li><li><a href="/guide/loading/" class="sidebar-link">loading-加载中</a></li><li><a href="/guide/mCascade/" class="sidebar-link">MCascade-级联选择</a></li><li><a href="/guide/message/" class="sidebar-link">Message 全局提示</a></li><li><a href="/guide/modal/" class="sidebar-link">Modal 对话框</a></li><li><a href="/guide/mSelect/" class="sidebar-link">MSelect 下拉选择v2</a></li><li><a href="/guide/multipleSearchInput/" class="sidebar-link">MultipleSearchInput 多维度选择器 - 开发板</a></li><li><a href="/guide/pagination/" class="sidebar-link">Pagination 分页</a></li><li><a href="/guide/pickerDate/" class="sidebar-link">PickerDate 日期选择</a></li><li><a href="/guide/pickerMonth/" class="sidebar-link">PickerMonth 月选择（业务型）</a></li><li><a href="/guide/pickerMonthDay/" class="sidebar-link">PickerMonthDay 月日选择器</a></li><li><a href="/guide/pickerTime/" class="sidebar-link">PickerTime 时分秒选择</a></li><li><a href="/guide/popover/" class="sidebar-link">Popover 气泡框</a></li><li><a href="/guide/popoverTip/" class="sidebar-link">PopoverTip 提示列表</a></li><li><a href="/guide/pTree/" class="sidebar-link">PTree 树形结构-(平铺渲染)v2</a></li><li><a href="/guide/pTreeSelect/" aria-current="page" class="active sidebar-link">PTreeSelect 树形下拉列表</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guide/radio/" class="sidebar-link">Radio 单选框</a></li><li><a href="/guide/radioGroup/" class="sidebar-link">RadioGroup 单选组</a></li><li><a href="/guide/select/" class="sidebar-link">Select 下拉选择器</a></li><li><a href="/guide/sidebarCustom/" class="sidebar-link">SidebarCustom 自定义侧边栏</a></li><li><a href="/guide/table/" class="sidebar-link">Table 表格</a></li><li><a href="/guide/tableGrid/" class="sidebar-link">TableGrid 表格v2</a></li><li><a href="/guide/tableTree/" class="sidebar-link">TableTree 树形表格</a></li><li><a href="/guide/tHead/" class="sidebar-link">THead 表头 - 开发板</a></li><li><a href="/guide/tabs/" class="sidebar-link">Tabs 标签页</a></li><li><a href="/guide/tag/" class="sidebar-link">Tag 标签</a></li><li><a href="/guide/toggle/" class="sidebar-link">Toggle 开关</a></li><li><a href="/guide/tooltip/" class="sidebar-link">Tooltip 标签页</a></li><li><a href="/guide/topNotification/" class="sidebar-link">TopNotification 置顶条</a></li><li><a href="/guide/transfer/" class="sidebar-link">Transfer 穿梭框</a></li><li><a href="/guide/transferEquipment/" class="sidebar-link">TransferEquipment 针对设备设施项目的穿梭框</a></li><li><a href="/guide/transferSelectModal/" class="sidebar-link">Transfer 穿梭框</a></li><li><a href="/guide/tree/" class="sidebar-link">Tree 树形结构</a></li><li><a href="/guide/treeBi/" class="sidebar-link">TreeBi 针对BI项目的树形结构</a></li><li><a href="/guide/treePersonOrg/" class="sidebar-link">TreePersonOrg 树形结构业务组件</a></li><li><a href="/guide/treeSelect/" class="sidebar-link">TreeSelect树下拉选择</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="ptreeselect-树形下拉列表"><a href="#ptreeselect-树形下拉列表" class="header-anchor">#</a> PTreeSelect 树形下拉列表</h3> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>此组件功能还不完善<br></p></div> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>基于第二版树形结构开发<br></p></div> <h4 id="_1-单选"><a href="#_1-单选" class="header-anchor">#</a> 1.单选</h4> <div class="per-tree-select"><div class="p-drop-trigger p-drop-trigger-normal p-drop-trigger-active" style="width:180px;"><div class="p-drop-trigger-main p-drop-trigger-main-normal"><div class="p-drop-trigger-caption p-drop-trigger-text-overflow" style="width:0px;">单选：
+        </div> <section class="p-drop-trigger-label"><span class="p-drop-trigger-placeholder p-drop-trigger-text-overflow">请选择</span> <!----></section></div> <div class="p-drop-trigger-icon"><i class="p-drop-trigger-svg p-drop-trigger-tgl p-drop-trigger-tgl-open"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-triangle"><path d="
+          M8.3904344,6.48804301
+          L11.350122,10.1876525
+          C11.5226268,10.4032834 11.4876661,10.7179296 11.2720351,10.8904344
+          C11.1833786,10.9613596 11.0732233,11 10.9596876,11
+          L5.04031242,11
+          C4.76417005,11 4.54031242,10.7761424 4.54031242,10.5
+          C4.54031242,10.3864643 4.5789528,10.276309 4.64987802,10.1876525
+          L7.6095656,6.48804301
+          C7.78207037,6.27241204 8.09671656,6.23745135 8.31234752,6.40995612
+          C8.34117988,6.43302201 8.36736852,6.45921065 8.3904344,6.48804301
+          Z" transform="translate(0, -0.5)" class="svg-fill-grey-500"></path></svg></i> <i class="p-drop-trigger-svg p-drop-trigger-del"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-delete_icon"><g stroke="none" stroke-width="1" fill-rule="evenodd"><path d="M8,1 C4.134375,1 1,4.134375 1,8 C1,11.865625 4.134375,15 8,15 C11.865625,15 15,11.865625 15,8 C15,4.134375 11.865625,1 8,1 Z M10.784375,9.6375 C11.040625,9.89375 11.040625,10.309375 10.784375,10.565625 C10.528125,10.821875 10.1125,10.821875 9.85625,10.565625 L8,8.709375 L6.14375,10.565625 C5.8875,10.821875 5.471875,10.821875 5.215625,10.565625 C4.959375,10.309375 4.959375,9.89375 5.215625,9.6375 L7.071875,7.78125 L5.215625,5.925 C4.959375,5.66875 4.959375,5.253125 5.215625,4.996875 C5.471875,4.740625 5.8875,4.740625 6.14375,4.996875 L8,6.853125 L9.85625,4.996875 C10.1125,4.740625 10.528125,4.740625 10.784375,4.996875 C11.040625,5.253125 11.040625,5.66875 10.784375,5.925 L8.928125,7.78125 L10.784375,9.6375 L10.784375,9.6375 Z" class="svg-fill-grey-500"></path></g></svg></i></div> <!----></div></div> <details class="custom-block details"><summary>查看示例</summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PTreeSelect</span>
+    <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>singleId<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data1<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">caption</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>单选：<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>change<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">/&gt;</span></span>
+
+singleId: '12'
+data1 = dataArr
+change(item) {
+    console.log('单选::', item);
+}
+</code></pre></div></details> <h4 id="_2-多选"><a href="#_2-多选" class="header-anchor">#</a> 2.多选</h4> <div class="per-tree-select"><div class="p-drop-trigger p-drop-trigger-normal p-drop-trigger-active" style="width:180px;"><div class="p-drop-trigger-main p-drop-trigger-main-normal"><!----> <section class="p-drop-trigger-label"><span class="p-drop-trigger-placeholder p-drop-trigger-text-overflow">请选择</span> <!----></section></div> <div class="p-drop-trigger-icon"><i class="p-drop-trigger-svg p-drop-trigger-tgl p-drop-trigger-tgl-open"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-triangle"><path d="
+          M8.3904344,6.48804301
+          L11.350122,10.1876525
+          C11.5226268,10.4032834 11.4876661,10.7179296 11.2720351,10.8904344
+          C11.1833786,10.9613596 11.0732233,11 10.9596876,11
+          L5.04031242,11
+          C4.76417005,11 4.54031242,10.7761424 4.54031242,10.5
+          C4.54031242,10.3864643 4.5789528,10.276309 4.64987802,10.1876525
+          L7.6095656,6.48804301
+          C7.78207037,6.27241204 8.09671656,6.23745135 8.31234752,6.40995612
+          C8.34117988,6.43302201 8.36736852,6.45921065 8.3904344,6.48804301
+          Z" transform="translate(0, -0.5)" class="svg-fill-grey-500"></path></svg></i> <i class="p-drop-trigger-svg p-drop-trigger-del"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-delete_icon"><g stroke="none" stroke-width="1" fill-rule="evenodd"><path d="M8,1 C4.134375,1 1,4.134375 1,8 C1,11.865625 4.134375,15 8,15 C11.865625,15 15,11.865625 15,8 C15,4.134375 11.865625,1 8,1 Z M10.784375,9.6375 C11.040625,9.89375 11.040625,10.309375 10.784375,10.565625 C10.528125,10.821875 10.1125,10.821875 9.85625,10.565625 L8,8.709375 L6.14375,10.565625 C5.8875,10.821875 5.471875,10.821875 5.215625,10.565625 C4.959375,10.309375 4.959375,9.89375 5.215625,9.6375 L7.071875,7.78125 L5.215625,5.925 C4.959375,5.66875 4.959375,5.253125 5.215625,4.996875 C5.471875,4.740625 5.8875,4.740625 6.14375,4.996875 L8,6.853125 L9.85625,4.996875 C10.1125,4.740625 10.528125,4.740625 10.784375,4.996875 C11.040625,5.253125 11.040625,5.66875 10.784375,5.925 L8.928125,7.78125 L10.784375,9.6375 L10.784375,9.6375 Z" class="svg-fill-grey-500"></path></g></svg></i></div> <!----></div></div> <details class="custom-block details"><summary>查看示例</summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PTreeSelect</span>
+    <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data2<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:multiple</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>change<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">/&gt;</span></span>
+
+data2 = dataArr
+change(obj) {
+    console.log('多选::', obj);
+}
+</code></pre></div></details> <h4 id="_3-多选-可选面板"><a href="#_3-多选-可选面板" class="header-anchor">#</a> 3.多选 + 可选面板</h4> <div class="per-tree-select"><div class="p-drop-trigger p-drop-trigger-normal p-drop-trigger-active" style="width:180px;"><div class="p-drop-trigger-main p-drop-trigger-main-normal"><!----> <section class="p-drop-trigger-label"><span class="p-drop-trigger-placeholder p-drop-trigger-text-overflow">请选择</span> <!----></section></div> <div class="p-drop-trigger-icon"><i class="p-drop-trigger-svg p-drop-trigger-tgl p-drop-trigger-tgl-open"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-triangle"><path d="
+          M8.3904344,6.48804301
+          L11.350122,10.1876525
+          C11.5226268,10.4032834 11.4876661,10.7179296 11.2720351,10.8904344
+          C11.1833786,10.9613596 11.0732233,11 10.9596876,11
+          L5.04031242,11
+          C4.76417005,11 4.54031242,10.7761424 4.54031242,10.5
+          C4.54031242,10.3864643 4.5789528,10.276309 4.64987802,10.1876525
+          L7.6095656,6.48804301
+          C7.78207037,6.27241204 8.09671656,6.23745135 8.31234752,6.40995612
+          C8.34117988,6.43302201 8.36736852,6.45921065 8.3904344,6.48804301
+          Z" transform="translate(0, -0.5)" class="svg-fill-grey-500"></path></svg></i> <i class="p-drop-trigger-svg p-drop-trigger-del"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-delete_icon"><g stroke="none" stroke-width="1" fill-rule="evenodd"><path d="M8,1 C4.134375,1 1,4.134375 1,8 C1,11.865625 4.134375,15 8,15 C11.865625,15 15,11.865625 15,8 C15,4.134375 11.865625,1 8,1 Z M10.784375,9.6375 C11.040625,9.89375 11.040625,10.309375 10.784375,10.565625 C10.528125,10.821875 10.1125,10.821875 9.85625,10.565625 L8,8.709375 L6.14375,10.565625 C5.8875,10.821875 5.471875,10.821875 5.215625,10.565625 C4.959375,10.309375 4.959375,9.89375 5.215625,9.6375 L7.071875,7.78125 L5.215625,5.925 C4.959375,5.66875 4.959375,5.253125 5.215625,4.996875 C5.471875,4.740625 5.8875,4.740625 6.14375,4.996875 L8,6.853125 L9.85625,4.996875 C10.1125,4.740625 10.528125,4.740625 10.784375,4.996875 C11.040625,5.253125 11.040625,5.66875 10.784375,5.925 L8.928125,7.78125 L10.784375,9.6375 L10.784375,9.6375 Z" class="svg-fill-grey-500"></path></g></svg></i></div> <!----></div></div> <details class="custom-block details"><summary>查看示例</summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PTreeSelect</span>
+    <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>multipleId<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data3<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:multiple</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:panel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">dropWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>change<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">/&gt;</span></span>
+
+multipleId: ['12', '121', '322']
+data3: dataArr
+change(obj) {
+    console.log('多选::', obj);
+}
+</code></pre></div></details> <h4 id="_4-多选-可选面板-childdisable"><a href="#_4-多选-可选面板-childdisable" class="header-anchor">#</a> 4.多选 + 可选面板 + childDisable</h4> <div class="per-tree-select"><div class="p-drop-trigger p-drop-trigger-normal p-drop-trigger-active" style="width:180px;"><div class="p-drop-trigger-main p-drop-trigger-main-normal"><!----> <section class="p-drop-trigger-label"><span class="p-drop-trigger-placeholder p-drop-trigger-text-overflow">请选择</span> <!----></section></div> <div class="p-drop-trigger-icon"><i class="p-drop-trigger-svg p-drop-trigger-tgl p-drop-trigger-tgl-open"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-triangle"><path d="
+          M8.3904344,6.48804301
+          L11.350122,10.1876525
+          C11.5226268,10.4032834 11.4876661,10.7179296 11.2720351,10.8904344
+          C11.1833786,10.9613596 11.0732233,11 10.9596876,11
+          L5.04031242,11
+          C4.76417005,11 4.54031242,10.7761424 4.54031242,10.5
+          C4.54031242,10.3864643 4.5789528,10.276309 4.64987802,10.1876525
+          L7.6095656,6.48804301
+          C7.78207037,6.27241204 8.09671656,6.23745135 8.31234752,6.40995612
+          C8.34117988,6.43302201 8.36736852,6.45921065 8.3904344,6.48804301
+          Z" transform="translate(0, -0.5)" class="svg-fill-grey-500"></path></svg></i> <i class="p-drop-trigger-svg p-drop-trigger-del"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-delete_icon"><g stroke="none" stroke-width="1" fill-rule="evenodd"><path d="M8,1 C4.134375,1 1,4.134375 1,8 C1,11.865625 4.134375,15 8,15 C11.865625,15 15,11.865625 15,8 C15,4.134375 11.865625,1 8,1 Z M10.784375,9.6375 C11.040625,9.89375 11.040625,10.309375 10.784375,10.565625 C10.528125,10.821875 10.1125,10.821875 9.85625,10.565625 L8,8.709375 L6.14375,10.565625 C5.8875,10.821875 5.471875,10.821875 5.215625,10.565625 C4.959375,10.309375 4.959375,9.89375 5.215625,9.6375 L7.071875,7.78125 L5.215625,5.925 C4.959375,5.66875 4.959375,5.253125 5.215625,4.996875 C5.471875,4.740625 5.8875,4.740625 6.14375,4.996875 L8,6.853125 L9.85625,4.996875 C10.1125,4.740625 10.528125,4.740625 10.784375,4.996875 C11.040625,5.253125 11.040625,5.66875 10.784375,5.925 L8.928125,7.78125 L10.784375,9.6375 L10.784375,9.6375 Z" class="svg-fill-grey-500"></path></g></svg></i></div> <!----></div></div> <details class="custom-block details"><summary>查看示例</summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PTreeSelect</span>
+    <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>multipleId4<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>data4<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:multiple</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:childDisable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:panel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">dropWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>change<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">/&gt;</span></span>
+
+multipleId4: ['13', '131', '132']
+data4: dataArr
+change(obj) {
+    console.log('多选::', obj);
+}
+</code></pre></div></details> <h4 id="_5-checkbox可配置"><a href="#_5-checkbox可配置" class="header-anchor">#</a> 5.checkbox可配置</h4> <div class="per-tree-select"><div class="p-drop-trigger p-drop-trigger-tag p-drop-trigger-active" style="width:300px;"><div class="p-drop-trigger-main p-drop-trigger-main-tag"><div class="p-drop-trigger-caption p-drop-trigger-text-overflow" style="width:0px;">标题：
+        </div> <section class="p-drop-trigger-label" style="width:calc(100% - 0px);"><span class="p-drop-trigger-placeholder p-drop-trigger-text-overflow">输入检索内容</span></section></div> <div class="p-drop-trigger-icon"><i class="p-drop-trigger-svg p-drop-trigger-tgl p-drop-trigger-tgl-open"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-triangle"><path d="
+          M8.3904344,6.48804301
+          L11.350122,10.1876525
+          C11.5226268,10.4032834 11.4876661,10.7179296 11.2720351,10.8904344
+          C11.1833786,10.9613596 11.0732233,11 10.9596876,11
+          L5.04031242,11
+          C4.76417005,11 4.54031242,10.7761424 4.54031242,10.5
+          C4.54031242,10.3864643 4.5789528,10.276309 4.64987802,10.1876525
+          L7.6095656,6.48804301
+          C7.78207037,6.27241204 8.09671656,6.23745135 8.31234752,6.40995612
+          C8.34117988,6.43302201 8.36736852,6.45921065 8.3904344,6.48804301
+          Z" transform="translate(0, -0.5)" class="svg-fill-grey-500"></path></svg></i> <i class="p-drop-trigger-svg p-drop-trigger-del"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-delete_icon"><g stroke="none" stroke-width="1" fill-rule="evenodd"><path d="M8,1 C4.134375,1 1,4.134375 1,8 C1,11.865625 4.134375,15 8,15 C11.865625,15 15,11.865625 15,8 C15,4.134375 11.865625,1 8,1 Z M10.784375,9.6375 C11.040625,9.89375 11.040625,10.309375 10.784375,10.565625 C10.528125,10.821875 10.1125,10.821875 9.85625,10.565625 L8,8.709375 L6.14375,10.565625 C5.8875,10.821875 5.471875,10.821875 5.215625,10.565625 C4.959375,10.309375 4.959375,9.89375 5.215625,9.6375 L7.071875,7.78125 L5.215625,5.925 C4.959375,5.66875 4.959375,5.253125 5.215625,4.996875 C5.471875,4.740625 5.8875,4.740625 6.14375,4.996875 L8,6.853125 L9.85625,4.996875 C10.1125,4.740625 10.528125,4.740625 10.784375,4.996875 C11.040625,5.253125 11.040625,5.66875 10.784375,5.925 L8.928125,7.78125 L10.784375,9.6375 L10.784375,9.6375 Z" class="svg-fill-grey-500"></path></g></svg></i></div> <!----></div></div> <details class="custom-block details"><summary>查看示例</summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PTreeSelect</span>
+    <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>multipleId5<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">triggerWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>tag<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>输入检索内容<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>testServerData<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:multiple</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:clearHide</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:childDisable</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:panel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">:dropSearch</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">dropWidth</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>600<span class="token punctuation">&quot;</span></span>
+    <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>change<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">/&gt;</span></span>
+
+multipleId5: ['BM7b184adf12d149de912361f7c34db8b2']
+data: testServerData
+change(obj) {
+    console.log('多选::', obj);
+}
+</code></pre></div></details> <h4 id="示例数据"><a href="#示例数据" class="header-anchor">#</a> 示例数据</h4> <details class="custom-block details"><summary>示例数据</summary> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> dataArr <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        id<span class="token operator">:</span> <span class="token string">'0'</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token string">'顶级顶级'</span><span class="token punctuation">,</span>
+        open<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        children<span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'一级1'</span><span class="token punctuation">,</span>
+                open<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'12'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'二级2'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'121'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'二级3'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'122'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'二级4'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span>
+                        id<span class="token operator">:</span> <span class="token string">'1321'</span><span class="token punctuation">,</span>
+                        name<span class="token operator">:</span> <span class="token string">'二级1'</span><span class="token punctuation">,</span>
+                        <span class="token comment">// defaultDisabled: true,</span>
+                        children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                            <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'13'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'三级2'</span><span class="token punctuation">,</span> defaultDisabled<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'131'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'三级3'</span><span class="token punctuation">,</span> defaultDisabled<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'132'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'三级4'</span><span class="token punctuation">,</span> defaultDisabled<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+                        <span class="token punctuation">]</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'一级2'</span><span class="token punctuation">,</span>
+                children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'222'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'二级2'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2221'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'二级1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'2222'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'二级3'</span> <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                id<span class="token operator">:</span> <span class="token string">'3'</span><span class="token punctuation">,</span>
+                name<span class="token operator">:</span> <span class="token string">'一级3'</span><span class="token punctuation">,</span>
+                children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'322'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'二级2'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3220'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'二级0'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span> id<span class="token operator">:</span> <span class="token string">'3221'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'二级1'</span> <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> testServerData <span class="token operator">=</span> <span class="token punctuation">[</span>
+       <span class="token punctuation">{</span>
+           id<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span><span class="token punctuation">,</span>
+           name<span class="token operator">:</span> <span class="token string">'商管公司'</span><span class="token punctuation">,</span>
+           parentId<span class="token operator">:</span> <span class="token string">'-1'</span><span class="token punctuation">,</span>
+           showCheckbox<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+           children<span class="token operator">:</span> <span class="token punctuation">[</span>
+               <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BM324ccef0ffdc4c75996b19378ad4b88a'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'530一级部门'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span><span class="token punctuation">,</span>
+                   children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+                       id<span class="token operator">:</span> <span class="token string">'BM9e8b6baf82df4fc196729fe0b76468c7'</span><span class="token punctuation">,</span>
+                       name<span class="token operator">:</span> <span class="token string">'下级部门'</span><span class="token punctuation">,</span>
+                       parentId<span class="token operator">:</span> <span class="token string">'BM324ccef0ffdc4c75996b19378ad4b88a'</span><span class="token punctuation">,</span>
+                       children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+                           id<span class="token operator">:</span> <span class="token string">'BM7b184adf12d149de912361f7c34db8b2'</span><span class="token punctuation">,</span>
+                           name<span class="token operator">:</span> <span class="token string">'下下级部门'</span><span class="token punctuation">,</span>
+                           parentId<span class="token operator">:</span> <span class="token string">'BM9e8b6baf82df4fc196729fe0b76468c7'</span><span class="token punctuation">,</span>
+                           children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+                               id<span class="token operator">:</span> <span class="token string">'BM5a13eb82fc6647c289215aa9a4cf5d08'</span><span class="token punctuation">,</span>
+                               name<span class="token operator">:</span> <span class="token string">'嘻嘻嘻家'</span><span class="token punctuation">,</span>
+                               parentId<span class="token operator">:</span> <span class="token string">'BM7b184adf12d149de912361f7c34db8b2'</span>
+                           <span class="token punctuation">}</span><span class="token punctuation">]</span>
+                       <span class="token punctuation">}</span><span class="token punctuation">]</span>
+                   <span class="token punctuation">}</span><span class="token punctuation">]</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BM4eb8427421454c0d8b7c1d9108a86cb2'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'供应商'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BM5625546a71da4248a8e5dc80a5d6fbf1'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'总部联合检查部门'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMac6160753ee14108a0a27b6f3681c484'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'通用部门'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span><span class="token punctuation">,</span>
+                   children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+                       id<span class="token operator">:</span> <span class="token string">'BM061ff92e835d462589e736c9cfb3ce31'</span><span class="token punctuation">,</span>
+                       name<span class="token operator">:</span> <span class="token string">'外委保洁'</span><span class="token punctuation">,</span>
+                       parentId<span class="token operator">:</span> <span class="token string">'BMac6160753ee14108a0a27b6f3681c484'</span>
+                   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                       id<span class="token operator">:</span> <span class="token string">'BM89a52ef2d383425dac8e1c12a0bcaf57'</span><span class="token punctuation">,</span>
+                       name<span class="token operator">:</span> <span class="token string">'外委消防'</span><span class="token punctuation">,</span>
+                       parentId<span class="token operator">:</span> <span class="token string">'BMac6160753ee14108a0a27b6f3681c484'</span>
+                   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                       id<span class="token operator">:</span> <span class="token string">'BMc43d7450f9a44b308979710025d98811'</span><span class="token punctuation">,</span>
+                       name<span class="token operator">:</span> <span class="token string">'外委电梯'</span><span class="token punctuation">,</span>
+                       parentId<span class="token operator">:</span> <span class="token string">'BMac6160753ee14108a0a27b6f3681c484'</span>
+                   <span class="token punctuation">}</span><span class="token punctuation">]</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMc830a01ce5924afa857e3c84199c9856'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'销售物业工程物业部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMca6a8b926f6e42c88e1ec7f3229e45ec'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'工程部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMd6db28c1160240a8a78be8993a211d5b'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'商场物业部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMf168a9ac0f4f49a6893bd58df3d32886'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'行政人事部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM08e02a97e2fa4c5f8c81b2b0975568d3'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'工程物业部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM2da53957a466400ca2d88985d91ab146'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'销售物业部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM3fdbe4b5c0474c12929e2018ffe67929'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'企划部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM47862e0535fb4d3db824ecb5e06a1420'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'销售物业招商部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM50caea9f8b7f4f77971316e7b1ce9758'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'财务部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM52f2d18ef23c4e0eb319c921caa272b7'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'招商营运部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM9131ff3b5c29415799c29d833dcb6b35'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'安全品质部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM913e46c6c0ae44279b8e440f97a37e08'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'运营部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM974762df1e5d4f838cae1d684bcd9ed9'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'销售物业工程部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMMd96fc03c4a2e4a6b8a7aa4a086f2d194'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'超级菜场部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMMe50a11e8942b4dc9811f2f66f9c37e9a'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'总经理室'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMMfb5cd4e76e1c4209819916e27a8c6ebe'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'吾悦菜场部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BM789da012b46b4b9a834aeced21ef1986'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">]</span>
+       <span class="token punctuation">}</span><span class="token punctuation">,</span>
+       <span class="token punctuation">{</span>
+           id<span class="token operator">:</span> <span class="token string">'BMa14857716d0e4cde8b69fc9e3865bceb'</span><span class="token punctuation">,</span>
+           name<span class="token operator">:</span> <span class="token string">'商开公司'</span><span class="token punctuation">,</span>
+           parentId<span class="token operator">:</span> <span class="token string">'-1'</span><span class="token punctuation">,</span>
+           showCheckbox<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+           children<span class="token operator">:</span> <span class="token punctuation">[</span>
+               <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM06aca59687f2461a9ddcc191578385f6'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'成本部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMa14857716d0e4cde8b69fc9e3865bceb'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM41d637e8083846b1a8d7438f8a8eb796'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'行政人事部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMa14857716d0e4cde8b69fc9e3865bceb'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM513841806a7a42e6af41181ee88b0077'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'技术部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMa14857716d0e4cde8b69fc9e3865bceb'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM74a9a9047a784b0086521b3dc87d1a96'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'财务部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMa14857716d0e4cde8b69fc9e3865bceb'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM83ef17f4891b48f5b85844c71668b1c1'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'营销部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMa14857716d0e4cde8b69fc9e3865bceb'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM95044d522a874dca8a58b0f3901c3a3c'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'总经理室'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMa14857716d0e4cde8b69fc9e3865bceb'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMMa1de89acd20d4e15a853a777c275b114'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'工程部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMa14857716d0e4cde8b69fc9e3865bceb'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMMda71778852ba4945a31a3f7eafc5bede'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'客服部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMa14857716d0e4cde8b69fc9e3865bceb'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">]</span>
+       <span class="token punctuation">}</span><span class="token punctuation">,</span>
+       <span class="token punctuation">{</span>
+           id<span class="token operator">:</span> <span class="token string">'BMMb53ee282ca474d08b7ebaf7ed7bd5b5c'</span><span class="token punctuation">,</span>
+           name<span class="token operator">:</span> <span class="token string">'123'</span><span class="token punctuation">,</span>
+           parentId<span class="token operator">:</span> <span class="token string">'-1'</span><span class="token punctuation">,</span>
+           showCheckbox<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+           children<span class="token operator">:</span> <span class="token punctuation">[</span>
+               <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM273069739da64b2d92a32f813a6be991'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMMb53ee282ca474d08b7ebaf7ed7bd5b5c'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">]</span>
+       <span class="token punctuation">}</span><span class="token punctuation">,</span>
+       <span class="token punctuation">{</span>
+           id<span class="token operator">:</span> <span class="token string">'BMMede7cf32e2b442b4bc47e5efdc0621f3'</span><span class="token punctuation">,</span>
+           name<span class="token operator">:</span> <span class="token string">'区域商管公司'</span><span class="token punctuation">,</span>
+           parentId<span class="token operator">:</span> <span class="token string">'-1'</span><span class="token punctuation">,</span>
+           showCheckbox<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+           children<span class="token operator">:</span> <span class="token punctuation">[</span>
+               <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM0e013551924b4f0fa746a170896e3a4a'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'营运部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMMede7cf32e2b442b4bc47e5efdc0621f3'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM10122e7f8693430c94e213ef29f0e362'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'总经理室'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMMede7cf32e2b442b4bc47e5efdc0621f3'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM16174c4a18fc4bc8b44f20fab09e5ef1'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'招商部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMMede7cf32e2b442b4bc47e5efdc0621f3'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM4d44ac2cacd34792b02a5c9b8a3628f9'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'行政人事部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMMede7cf32e2b442b4bc47e5efdc0621f3'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMM9793b764cf5449c4a85050e0c35919e3'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'财务部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMMede7cf32e2b442b4bc47e5efdc0621f3'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMMd5ce48da59b442569db90128123bb3ce'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'企划部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMMede7cf32e2b442b4bc47e5efdc0621f3'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                   id<span class="token operator">:</span> <span class="token string">'BMMe53f174f02374bd0ad4e25b6cd190ddc'</span><span class="token punctuation">,</span>
+                   name<span class="token operator">:</span> <span class="token string">'工程物业部'</span><span class="token punctuation">,</span>
+                   parentId<span class="token operator">:</span> <span class="token string">'BMMede7cf32e2b442b4bc47e5efdc0621f3'</span>
+               <span class="token punctuation">}</span><span class="token punctuation">]</span>
+       <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div></details> <h3 id="attributes"><a href="#attributes" class="header-anchor">#</a> Attributes</h3> <table><thead><tr><th>参数</th> <th>说明</th> <th>类型</th> <th>默认值</th> <th>必须</th></tr></thead> <tbody><tr><td>triggerWidth</td> <td>触发器宽</td> <td>String/Number</td> <td>180</td> <td>No</td></tr> <tr><td>dropWidth</td> <td>下拉选择盒子宽</td> <td>String/Number</td> <td>280</td> <td>No</td></tr> <tr><td>placeholder</td> <td>占位符</td> <td>String</td> <td>请选择</td> <td>No</td></tr> <tr><td>caption</td> <td>标题</td> <td>String</td> <td>''</td> <td>No</td></tr> <tr><td>v-model</td> <td>选中的id/ids</td> <td>String/Number/Array</td> <td>''</td> <td>No</td></tr> <tr><td>data</td> <td>数据列表</td> <td>Array</td> <td>[]</td> <td>Yes</td></tr> <tr><td>panel</td> <td>是否显示可选面板</td> <td>Boolean</td> <td>false</td> <td>No</td></tr> <tr><td>multiple</td> <td>是否可多选</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>allCheckboxShow</td> <td>所有checkbox是否显示</td> <td>Boolean</td> <td>true</td> <td>no</td></tr> <tr><td>notNull</td> <td>是否返回半选状态的数据（在多选条件下才生效）</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>linkage</td> <td>是否上下级联动选择（在多选条件下才生效）</td> <td>Boolean</td> <td>true</td> <td>no</td></tr> <tr><td>lastStage</td> <td>只能选择最后一级（在多选条件下才生效）</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>childDisable</td> <td>父级选中子级禁用，子级选中不影响父级(当值为true时不支持清除)</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>includeParent</td> <td>返回数据是否包含父级</td> <td>Boolean</td> <td>true</td> <td>No</td></tr> <tr><td>clearHide</td> <td>hover到触发器上是否显示清除按钮</td> <td>Boolean</td> <td>false</td> <td>No</td></tr> <tr><td>render</td> <td>自定义渲染内容可选值['', 'custom']</td> <td>String</td> <td>''</td> <td>no</td></tr> <tr><td>transfer</td> <td>设置父标签出现滚动条的id</td> <td>String</td> <td>''</td> <td>no</td></tr> <tr><td>sameParams</td> <td>设置相同name和sameId的值禁用</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>sortByTree</td> <td>按照树形结构排序选中的数据</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>jointParent</td> <td>可选面板是否拼接父级name</td> <td>Boolean</td> <td>true</td> <td>no</td></tr> <tr><td>onlySearchLastLevel</td> <td>只能搜索最后一级</td> <td>Boolean</td> <td>false</td> <td>no</td></tr> <tr><td>@change</td> <td>点击回调</td> <td>Function</td> <td>item =&gt; {}/( item, checkedIds, checkedData ) =&gt; {}</td> <td>Yes</td></tr> <tr><td>@openNode</td> <td>展开收起节点的回调函数</td> <td>Function</td> <td>item =&gt; {}</td> <td>No</td></tr></tbody></table> <h3 id="data参数说明"><a href="#data参数说明" class="header-anchor">#</a> data参数说明</h3> <table><thead><tr><th>参数</th> <th>说明</th> <th>类型</th> <th>默认值</th> <th>必须</th></tr></thead> <tbody><tr><td>id</td> <td>id</td> <td>String</td> <td>''</td> <td>Yes</td></tr> <tr><td>name</td> <td>name</td> <td>String</td> <td>''</td> <td>Yes</td></tr> <tr><td>open</td> <td>是否展开子项</td> <td>Boolean</td> <td>false</td> <td>Yes</td></tr> <tr><td>disabled</td> <td>是否禁用</td> <td>Boolean</td> <td>false</td> <td>Yes</td></tr> <tr><td>checked</td> <td>是否选中（可选值：uncheck/checked/notNull）</td> <td>String</td> <td>uncheck</td> <td>Yes</td></tr> <tr><td>sameId</td> <td>同一棵树下相同name的id</td> <td>String</td> <td>''</td> <td>no</td></tr></tbody></table> <div class="custom-block danger"><p class="custom-block-title">警告</p> <div class="language- extra-class"><pre><code>该组件单页在理论情况(即页面只存在PTreeSelect) data数据全部展开且子父级之和可容纳225条，超过225弹出动画会卡，
+若不考虑css动画，数据子父级之和可容纳最多3000条
+</code></pre></div></div> <div class="custom-block tip"><p class="custom-block-title">checked值状态</p> <p>checked:
+<br>
+uncheck-未选中
+<br>
+checked-选中
+<br>
+notNull-半选状态
+<br></p></div> <div class="custom-block tip"><p class="custom-block-title">提示</p> <p>在多选情况下返回选中的id也就是checked的id，如需返回半选状态的数据请设置notNull为true<br>
+当childDisable为true时，includeParent值为false不生效<br></p></div> <div class="custom-block tip"><p class="custom-block-title">返回参数(data参数)说明</p> <p>{<br>
+index: 'xxx-xxx-xxx', // String 索引字符串<br>
+parentId: 'xxx', // String 父级id<br>
+id: 'xxx', // String 当前项id<br>
+name: 'xxx', // String <br>
+checked: uncheck/checked/notNull, // String checkbox选中状态<br>
+open: true/false, // Boolean 是否展开子项<br>
+defaultDisabled: true/false, // Boolean 设置默认禁用，此参数表示不能被修改disabled、checked状态, 作用：1.可设置末级不可选；2.可得到默认选中的数据；<br>
+disabled: true/false, // Boolean 当前项是否禁用的状态<br>
+lastNode: true/false, // Boolean 是否是最后一级节点(叶子节点)<br>
+show: true/false, // Boolean 当前项是否显示<br>
+showCheckbox: true/false // Boolean 是否显示checkbox<br>
+}</p></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/pTree/" class="prev">
+        PTree 树形结构-(平铺渲染)v2
+      </a></span> <span class="next"><a href="/guide/radio/">
+        Radio 单选框
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.0f4b3926.js" defer></script><script src="/assets/js/2.98a06d25.js" defer></script><script src="/assets/js/56.4e378b47.js" defer></script>
+  </body>
+</html>

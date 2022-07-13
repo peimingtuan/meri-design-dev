@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MultipleSearchInput 多维度选择器 - 开发板 | meri-design-dev</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="博锐尚格ui组件使用文档">
+    
+    <link rel="preload" href="/assets/css/0.styles.c932598c.css" as="style"><link rel="preload" href="/assets/js/app.0f4b3926.js" as="script"><link rel="preload" href="/assets/js/2.98a06d25.js" as="script"><link rel="preload" href="/assets/js/55.c2fb2a37.js" as="script"><link rel="prefetch" href="/assets/js/10.8576e304.js"><link rel="prefetch" href="/assets/js/11.9e25ae74.js"><link rel="prefetch" href="/assets/js/12.f5f1fe41.js"><link rel="prefetch" href="/assets/js/13.0767dd5c.js"><link rel="prefetch" href="/assets/js/14.ebb3ff13.js"><link rel="prefetch" href="/assets/js/15.554f5f03.js"><link rel="prefetch" href="/assets/js/16.95263cff.js"><link rel="prefetch" href="/assets/js/17.f7d1a4b6.js"><link rel="prefetch" href="/assets/js/18.dbf62ab4.js"><link rel="prefetch" href="/assets/js/19.bd1b3e3d.js"><link rel="prefetch" href="/assets/js/20.a82edc8c.js"><link rel="prefetch" href="/assets/js/21.b23fa261.js"><link rel="prefetch" href="/assets/js/22.d6327636.js"><link rel="prefetch" href="/assets/js/23.5191c467.js"><link rel="prefetch" href="/assets/js/24.253d12f4.js"><link rel="prefetch" href="/assets/js/25.fd4d6d3e.js"><link rel="prefetch" href="/assets/js/26.4737060c.js"><link rel="prefetch" href="/assets/js/27.22a7d353.js"><link rel="prefetch" href="/assets/js/28.dd48996c.js"><link rel="prefetch" href="/assets/js/29.01f94322.js"><link rel="prefetch" href="/assets/js/3.e2d3ff17.js"><link rel="prefetch" href="/assets/js/30.7f2321c0.js"><link rel="prefetch" href="/assets/js/31.62c2af2d.js"><link rel="prefetch" href="/assets/js/32.df6c42e5.js"><link rel="prefetch" href="/assets/js/33.4a39ad94.js"><link rel="prefetch" href="/assets/js/34.1ca35536.js"><link rel="prefetch" href="/assets/js/35.58a8e310.js"><link rel="prefetch" href="/assets/js/36.2f1e54b3.js"><link rel="prefetch" href="/assets/js/37.b66686d5.js"><link rel="prefetch" href="/assets/js/38.2509eabe.js"><link rel="prefetch" href="/assets/js/39.b01fb766.js"><link rel="prefetch" href="/assets/js/4.1a66202b.js"><link rel="prefetch" href="/assets/js/40.f29698da.js"><link rel="prefetch" href="/assets/js/41.18bbc19c.js"><link rel="prefetch" href="/assets/js/42.c1c6e38a.js"><link rel="prefetch" href="/assets/js/43.f28a07c7.js"><link rel="prefetch" href="/assets/js/44.c009d44b.js"><link rel="prefetch" href="/assets/js/45.1988a6e9.js"><link rel="prefetch" href="/assets/js/46.16834d4e.js"><link rel="prefetch" href="/assets/js/47.22cfdf5b.js"><link rel="prefetch" href="/assets/js/48.1754e6f5.js"><link rel="prefetch" href="/assets/js/49.f643d796.js"><link rel="prefetch" href="/assets/js/5.b38b247b.js"><link rel="prefetch" href="/assets/js/50.c5d6dbef.js"><link rel="prefetch" href="/assets/js/51.075b39cd.js"><link rel="prefetch" href="/assets/js/52.8762dcf1.js"><link rel="prefetch" href="/assets/js/53.f30bb9ab.js"><link rel="prefetch" href="/assets/js/54.564684da.js"><link rel="prefetch" href="/assets/js/56.4e378b47.js"><link rel="prefetch" href="/assets/js/57.4cc8a100.js"><link rel="prefetch" href="/assets/js/58.de5302dc.js"><link rel="prefetch" href="/assets/js/59.7751a178.js"><link rel="prefetch" href="/assets/js/6.3213bcaf.js"><link rel="prefetch" href="/assets/js/60.98e6dd90.js"><link rel="prefetch" href="/assets/js/61.3e693c19.js"><link rel="prefetch" href="/assets/js/62.dd290cad.js"><link rel="prefetch" href="/assets/js/63.574bbb5c.js"><link rel="prefetch" href="/assets/js/64.6973bc73.js"><link rel="prefetch" href="/assets/js/65.b18af985.js"><link rel="prefetch" href="/assets/js/66.24a7bacb.js"><link rel="prefetch" href="/assets/js/67.24232a3a.js"><link rel="prefetch" href="/assets/js/68.0cdbe1c4.js"><link rel="prefetch" href="/assets/js/69.99e10324.js"><link rel="prefetch" href="/assets/js/7.508004fb.js"><link rel="prefetch" href="/assets/js/8.f918ac6c.js"><link rel="prefetch" href="/assets/js/9.38495ed6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.c932598c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo_persagy.png" alt="meri-design-dev" class="logo"> <span class="site-name can-hide">meri-design-dev</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="http://www.persagy.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博锐尚格
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  组件
+</a></div><div class="nav-item"><a href="http://www.persagy.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  博锐尚格
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/" aria-current="page" class="sidebar-link">首页</a></li><li><a href="/guide/" aria-current="page" class="sidebar-link">使用说明</a></li><li><a href="/guide/log/" class="sidebar-link">更新日志</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/avatar/" class="sidebar-link">Avatar 头像</a></li><li><a href="/guide/badge/" class="sidebar-link">Badge 徽标</a></li><li><a href="/guide/breadcrumb/" class="sidebar-link">Breadcrumb 面包屑</a></li><li><a href="/guide/button/" class="sidebar-link">Button 按钮</a></li><li><a href="/guide/cascader/" class="sidebar-link">Cascader 级联选择器</a></li><li><a href="/guide/cascaderSearchList/" class="sidebar-link">CascaderSearchList 列表选择器</a></li><li><a href="/guide/checkbox/" class="sidebar-link">Checkbox 复选框</a></li><li><a href="/guide/checkboxGroup/" class="sidebar-link">CheckboxGroup 复选框组</a></li><li><a href="/guide/customTreeSelectEnergy/" class="sidebar-link">CustomTreeSelectEnergy 运行能耗诊断弹窗选择器</a></li><li><a href="/guide/divider/" class="sidebar-link">Divider 分割线</a></li><li><a href="/guide/drawer/" class="sidebar-link">Drawer 抽屉</a></li><li><a href="/guide/dropdown/" class="sidebar-link">Dropdown 下拉菜单</a></li><li><a href="/guide/dropDownButton/" class="sidebar-link">DropDownButton 按钮</a></li><li><a href="/guide/dropGroup/" class="sidebar-link">DropGroup 下拉菜单组</a></li><li><a href="/guide/editable/" class="sidebar-link">Editable 可编辑列表</a></li><li><a href="/guide/editableList/" class="sidebar-link">EditableList 可编辑列表+子项</a></li><li><a href="/guide/emptyStatus/" class="sidebar-link">EmptyStatus 空状态</a></li><li><a href="/guide/fileUpload/" class="sidebar-link">FileUpload 文件上传组件</a></li><li><a href="/guide/headers/" class="sidebar-link">Headers 头部组合</a></li><li><a href="/guide/icon/" class="sidebar-link">Icon 图标</a></li><li><a href="/guide/imageUpload/" class="sidebar-link">ImageUpload 图片上传组件</a></li><li><a href="/guide/indexLoading/" class="sidebar-link">IndexLoading 首屏加载</a></li><li><a href="/guide/input/" class="sidebar-link">Input 输入框</a></li><li><a href="/guide/inputNumber/" class="sidebar-link">InputNumber 数字输入框</a></li><li><a href="/guide/loading/" class="sidebar-link">loading-加载中</a></li><li><a href="/guide/mCascade/" class="sidebar-link">MCascade-级联选择</a></li><li><a href="/guide/message/" class="sidebar-link">Message 全局提示</a></li><li><a href="/guide/modal/" class="sidebar-link">Modal 对话框</a></li><li><a href="/guide/mSelect/" class="sidebar-link">MSelect 下拉选择v2</a></li><li><a href="/guide/multipleSearchInput/" aria-current="page" class="active sidebar-link">MultipleSearchInput 多维度选择器 - 开发板</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/guide/pagination/" class="sidebar-link">Pagination 分页</a></li><li><a href="/guide/pickerDate/" class="sidebar-link">PickerDate 日期选择</a></li><li><a href="/guide/pickerMonth/" class="sidebar-link">PickerMonth 月选择（业务型）</a></li><li><a href="/guide/pickerMonthDay/" class="sidebar-link">PickerMonthDay 月日选择器</a></li><li><a href="/guide/pickerTime/" class="sidebar-link">PickerTime 时分秒选择</a></li><li><a href="/guide/popover/" class="sidebar-link">Popover 气泡框</a></li><li><a href="/guide/popoverTip/" class="sidebar-link">PopoverTip 提示列表</a></li><li><a href="/guide/pTree/" class="sidebar-link">PTree 树形结构-(平铺渲染)v2</a></li><li><a href="/guide/pTreeSelect/" class="sidebar-link">PTreeSelect 树形下拉列表</a></li><li><a href="/guide/radio/" class="sidebar-link">Radio 单选框</a></li><li><a href="/guide/radioGroup/" class="sidebar-link">RadioGroup 单选组</a></li><li><a href="/guide/select/" class="sidebar-link">Select 下拉选择器</a></li><li><a href="/guide/sidebarCustom/" class="sidebar-link">SidebarCustom 自定义侧边栏</a></li><li><a href="/guide/table/" class="sidebar-link">Table 表格</a></li><li><a href="/guide/tableGrid/" class="sidebar-link">TableGrid 表格v2</a></li><li><a href="/guide/tableTree/" class="sidebar-link">TableTree 树形表格</a></li><li><a href="/guide/tHead/" class="sidebar-link">THead 表头 - 开发板</a></li><li><a href="/guide/tabs/" class="sidebar-link">Tabs 标签页</a></li><li><a href="/guide/tag/" class="sidebar-link">Tag 标签</a></li><li><a href="/guide/toggle/" class="sidebar-link">Toggle 开关</a></li><li><a href="/guide/tooltip/" class="sidebar-link">Tooltip 标签页</a></li><li><a href="/guide/topNotification/" class="sidebar-link">TopNotification 置顶条</a></li><li><a href="/guide/transfer/" class="sidebar-link">Transfer 穿梭框</a></li><li><a href="/guide/transferEquipment/" class="sidebar-link">TransferEquipment 针对设备设施项目的穿梭框</a></li><li><a href="/guide/transferSelectModal/" class="sidebar-link">Transfer 穿梭框</a></li><li><a href="/guide/tree/" class="sidebar-link">Tree 树形结构</a></li><li><a href="/guide/treeBi/" class="sidebar-link">TreeBi 针对BI项目的树形结构</a></li><li><a href="/guide/treePersonOrg/" class="sidebar-link">TreePersonOrg 树形结构业务组件</a></li><li><a href="/guide/treeSelect/" class="sidebar-link">TreeSelect树下拉选择</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="multiplesearchinput-多维度选择器-开发板"><a href="#multiplesearchinput-多维度选择器-开发板" class="header-anchor">#</a> MultipleSearchInput 多维度选择器 - 开发板</h3> <h4 id="height-treedata-linkage-selectedids-placeholder"><a href="#height-treedata-linkage-selectedids-placeholder" class="header-anchor">#</a> height+treeData+linkage+selectedIds+placeholder</h4> <div class="MultipleSearchInputView"><div class="p-multiple-search-input-component" style="width:300px;"><div class="p-multiple-search-input-content"><section class="p-multiple-search-input-content-left"><div class="p-select" style="max-width:100%;"><div class="p-select-header" style="width:100px;"><!----> <span class="p-select-selected-box" style="padding-left:;"><input readonly="readonly" autocomplete="off" value="" class="p-select-input p-select-cursor-input"> <section class="p-select-fake-placeholder" style="padding-left:;left:;"><span><span class="p-select-selected">中心1</span></span> <span style="display:none;">
+                    请选择
+                </span></section></span> <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-triangle p-select-triangle p-select-triangle-down"><path d="
+          M8.3904344,6.48804301
+          L11.350122,10.1876525
+          C11.5226268,10.4032834 11.4876661,10.7179296 11.2720351,10.8904344
+          C11.1833786,10.9613596 11.0732233,11 10.9596876,11
+          L5.04031242,11
+          C4.76417005,11 4.54031242,10.7761424 4.54031242,10.5
+          C4.54031242,10.3864643 4.5789528,10.276309 4.64987802,10.1876525
+          L7.6095656,6.48804301
+          C7.78207037,6.27241204 8.09671656,6.23745135 8.31234752,6.40995612
+          C8.34117988,6.43302201 8.36736852,6.45921065 8.3904344,6.48804301
+          Z" transform="translate(0, -0.5)" class="svg-fill-grey-500"></path></svg> <svg viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-clear2 p-select-clear" style="display:none;"><g transform="translate(-1.000000, -1.000000)" fill-rule="nonzero"><path d="M8,1 C4.134375,1 1,4.134375 1,8 C1,11.865625 4.134375,15 8,15 C11.865625,15 15,11.865625 15,8 C15,4.134375 11.865625,1 8,1 Z M10.784375,9.6375 C11.040625,9.89375 11.040625,10.309375 10.784375,10.565625 C10.528125,10.821875 10.1125,10.821875 9.85625,10.565625 L8,8.709375 L6.14375,10.565625 C5.8875,10.821875 5.471875,10.821875 5.215625,10.565625 C4.959375,10.309375 4.959375,9.89375 5.215625,9.6375 L7.071875,7.78125 L5.215625,5.925 C4.959375,5.66875 4.959375,5.253125 5.215625,4.996875 C5.471875,4.740625 5.8875,4.740625 6.14375,4.996875 L8,6.853125 L9.85625,4.996875 C10.1125,4.740625 10.528125,4.740625 10.784375,4.996875 C11.040625,5.253125 11.040625,5.66875 10.784375,5.925 L8.928125,7.78125 L10.784375,9.6375 L10.784375,9.6375 Z" class="svg-fill-grey-400"></path></g></svg> <!----></div></div></section> <section class="p-multiple-search-input-content-right" style="width:calc(100% - 100px);"><span class="p-select-input-place"><span style="display:none;">已选择<span>0</span>项</span> <span style="display:none;">全部</span> <span>请选择</span></span> <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="v-svg-triangle p-select-input-svg p-select-input-rotate"><path d="
+          M8.3904344,6.48804301
+          L11.350122,10.1876525
+          C11.5226268,10.4032834 11.4876661,10.7179296 11.2720351,10.8904344
+          C11.1833786,10.9613596 11.0732233,11 10.9596876,11
+          L5.04031242,11
+          C4.76417005,11 4.54031242,10.7761424 4.54031242,10.5
+          C4.54031242,10.3864643 4.5789528,10.276309 4.64987802,10.1876525
+          L7.6095656,6.48804301
+          C7.78207037,6.27241204 8.09671656,6.23745135 8.31234752,6.40995612
+          C8.34117988,6.43302201 8.36736852,6.45921065 8.3904344,6.48804301
+          Z" transform="translate(0, -0.5)" class="svg-fill-grey-500"></path></svg></section></div></div></div> <details class="custom-block details"><summary>查看示例</summary> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>MultipleSearchInputView<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MultipleSearchInput</span>
+            <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>500<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>300<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">:treeData</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dataTreeArr<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">:linkage</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">:selectedIds</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>selectedIds<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>请选择<span class="token punctuation">&quot;</span></span>
+            <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>selectedDataFn<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>MultipleSearchInput</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    id<span class="token operator">:</span> <span class="token string">'0'</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'万达广场asdasda'</span><span class="token punctuation">,</span>
+    typeName<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    typeId<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    children<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'中心1'</span><span class="token punctuation">,</span>
+            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token string">'11'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'区域1'</span><span class="token punctuation">,</span>
+                    children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'111'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目1'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'1111'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item1'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'1112'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item2'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'1113'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item3'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'112'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目2'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item1'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'1121'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item2'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'1122'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item3'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'1123'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'113'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目3'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item1'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'sssss'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item2'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'aaaaa'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item3'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'qqqqq'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token string">'12'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'区域2'</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token string">'13'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'区域3'</span><span class="token punctuation">,</span>
+                    children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'111ddd'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目13'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11113'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item13'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11123'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item23'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11133'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item33'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'112ddd'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目22'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item12'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11212'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item22'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11222'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item32'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11232'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'113dddd'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目33'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item13'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'1231'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item23'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'1232'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item33'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'1233'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token string">'2'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'中心2'</span><span class="token punctuation">,</span>
+            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token string">'212'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'区域7'</span><span class="token punctuation">,</span>
+                    children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'11112'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目12'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11211'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item14'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'12112'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item24'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11413'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item34'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'112'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目244'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item14'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'itemxx'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item24'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'itemcc'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item34'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'itemvv'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'11323'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目323'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item123'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'itemsdd'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item223'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'itemdfs'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item323'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'itemgfds'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token string">'2233'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'区域833'</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token string">'23332'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'区域9332'</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            id<span class="token operator">:</span> <span class="token string">'3111'</span><span class="token punctuation">,</span>
+            name<span class="token operator">:</span> <span class="token string">'中心12123'</span><span class="token punctuation">,</span>
+            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token string">'11111'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'区域1111'</span><span class="token punctuation">,</span>
+                    children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'1111111'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目111111'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11114444'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item1444'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'111'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'i44'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    id<span class="token operator">:</span> <span class="token string">'11134444'</span><span class="token punctuation">,</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item34444'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'112888'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目2888'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item1888'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'item12'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item2888'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'item32'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item3888'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'item432'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            id<span class="token operator">:</span> <span class="token string">'113999'</span><span class="token punctuation">,</span>
+                            name<span class="token operator">:</span> <span class="token string">'项目39999'</span><span class="token punctuation">,</span>
+                            children<span class="token operator">:</span> <span class="token punctuation">[</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item1999'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'item5324'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item2999'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'item4534'</span>
+                                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                                <span class="token punctuation">{</span>
+                                    name<span class="token operator">:</span> <span class="token string">'item3999'</span><span class="token punctuation">,</span>
+                                    id<span class="token operator">:</span> <span class="token string">'item6345'</span>
+                                <span class="token punctuation">}</span>
+                            <span class="token punctuation">]</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token string">'12234'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'区域5345'</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    id<span class="token operator">:</span> <span class="token string">'1323423'</span><span class="token punctuation">,</span>
+                    name<span class="token operator">:</span> <span class="token string">'区域35234'</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'MultipleSearchInputView'</span><span class="token punctuation">,</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            dataTreeArr<span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            selectedIds<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'1111'</span><span class="token punctuation">,</span> <span class="token string">'11211'</span><span class="token punctuation">,</span> <span class="token string">'12112'</span><span class="token punctuation">,</span> <span class="token string">'11114444'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function">selectedDataFn</span><span class="token punctuation">(</span><span class="token parameter">ids<span class="token punctuation">,</span> sd</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'这个是选择的数据'</span><span class="token punctuation">,</span> ids<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'这个是选择的数据'</span><span class="token punctuation">,</span> sd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></details> <h3 id="attributes"><a href="#attributes" class="header-anchor">#</a> Attributes</h3> <table><thead><tr><th>参数</th> <th>说明</th> <th>类型</th> <th>默认值</th> <th>必须</th></tr></thead> <tbody><tr><td>width</td> <td>设置宽度</td> <td>Number</td> <td>300</td> <td>No</td></tr> <tr><td>treeData</td> <td>下拉面板数据</td> <td>Object</td> <td>{}</td> <td>Yes</td></tr> <tr><td>selectedIds</td> <td>设置默认选中数据</td> <td>Array</td> <td>[]</td> <td>No</td></tr> <tr><td>placeholder</td> <td>设置触发器右边占位符</td> <td>String</td> <td>请选择</td> <td>No</td></tr> <tr><td>linkage</td> <td>上下级是否联动</td> <td>Boolean</td> <td>true</td> <td>No</td></tr> <tr><td>transfer</td> <td>设置父标签出现滚动条的id</td> <td>String</td> <td>''</td> <td>no</td></tr> <tr><td>change</td> <td>接收返回的已选择数据，接收两个参数，ids，dataObj</td> <td>Function</td> <td>--</td> <td>No</td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/mSelect/" class="prev">
+        MSelect 下拉选择v2
+      </a></span> <span class="next"><a href="/guide/pagination/">
+        Pagination 分页
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.0f4b3926.js" defer></script><script src="/assets/js/2.98a06d25.js" defer></script><script src="/assets/js/55.c2fb2a37.js" defer></script>
+  </body>
+</html>

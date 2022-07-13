@@ -1,0 +1,19 @@
+{
+    "name": "meri-design-dev-docs",
+    "version": "1.0.0",
+    "description": "meri-design-dev使用文档说明",
+    "main": "index.js",
+    "scripts": {
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs",
+        "docs:server": "node server.js"
+    },
+    "author": "xs",
+    "license": "MIT",
+    "devDependencies": {
+        "vuepress": "^1.8.0"
+    },
+    "dependencies": {
+        "lottie-web": "^5.7.4"
+    }
+}

@@ -1,0 +1,1024 @@
+<template>
+    <div class="tableGridView">
+        <!--render="custom"-->
+        <!--:statistics="statistics"-->
+<!--        :rowTools="rowTools"-->
+<!--        :dimension="true"-->
+<!--        :setting="true"-->
+
+        <TableGrid
+            width="100%"
+            :maxHeight="500"
+            :checkbox="true"
+            :border="true"
+            :header="header1"
+            :data="data1"
+            :dimension="true"
+            @monthHandle="monthHandle"
+            @screenHandle="screenHandle"
+            @sortHandle="sortHandle"
+            @rowClick="rowClick"
+            @rowToolHandle="rowToolHandle"
+            key="tableGrid1"
+        >
+            <template v-for="th in header4" #[th.key]="{item}">
+                <span :key="th.key" class="span-text">{{item.item[item.headerKey].text}}</span>
+            </template>
+        </TableGrid>
+        <br><br><br>
+        <!--
+        <TableGrid
+            width="100%"
+            :maxHeight="height"
+            :checkbox="true"
+            :border="true"
+            :setting="true"
+            :header="header4"
+            :data.sync="data4"
+            :rowNumber="true"
+            :dimension="false"
+            @monthHandle="monthHandle"
+            key="tableGrid12"
+        />
+        -->
+
+        <!--
+        <h3 class="components-title-h3">分组/展开行</h3>
+        <TableGrid
+                width="1200"
+                maxHeight="500"
+                :checkbox="true"
+                :header="headerGroup"
+                :data.sync="dataGroup"
+                groupName="groupName"
+                key="tableGridGroup"
+            >
+            <template v-for="th in header4" #[th.key]="{item}">
+                <span :key="th.key" class="span-text">{{item.item[item.headerKey].text}}</span>
+            </template>
+        </TableGrid>
+        <br><br><br><br>
+        <br>        <br>        <br>
+        <Button @click="changeDataCheck">修改data</Button>
+        <br>        <br>        <br>
+
+        <TableGrid
+                width="1200"
+                :maxHeight="300"
+                :checkbox="true"
+                :border="true"
+                :setting="true"
+                :openSelect="true"
+                :topButton="topButton"
+                :header="header"
+                :data.sync="data"
+                :rowNumber="true"
+                :statistics="statistics"
+                @sortHandle="sortHandle"
+                @select="selectHandle"
+                @screenHandle="screenHandle"
+                @settingReset="settingReset"
+                @rowToolHandle="rowToolHandle"
+                @resizableHandle="resizableHandle"
+                @topButtonHandle="topButtonHandle"
+                @monthHandle="monthHandle"
+                key="tableGrid"
+                ref="tableGrid"
+            >
+            <template v-for="th in header4" #[th.key]="{item}">
+                <span class="span-text">{{item.item[item.headerKey].text}}</span>
+            </template>
+        </TableGrid>
+        -->
+
+        <!--
+        <Button @click="aaaFn()">aaaaaaaaaaaaaaa</Button>
+
+        <TableGrid
+                width="1200"
+                maxHeight="400"
+                :checkbox="true"
+                :border="true"
+                :sortAjax="false"
+                :header="header2"
+                :data="dataMarge"
+                @sortHandle="sortHandle"
+                @topButtonHandle="topButtonHandle"
+                @rowToolHandle="rowToolHandle"
+                key="tableGrid3"
+        />
+        <br><br><br><br>
+        <TableGrid
+            render="custom"
+            width="600"
+            maxHeight="400"
+            average="150"
+            :header="header4"
+            :data="data4"
+            @sortHandle="sortHandle"
+            key="tableGrid44"
+        >
+            <template v-for="th in header4" #[th.key]="{item}">
+                <span class="span-text">{{item.item[item.headerKey].text}}</span>
+            </template>
+        </TableGrid>
+      -->
+
+        <!--
+      <TableGrid
+          width="600"
+          maxHeight="400"
+          average="150"
+          :border="true"
+          :header="header4"
+          :data="data4"
+          @sortHandle="sortHandle"
+          key="tableGrid4"
+      />
+        -->
+    </div>
+</template>
+
+<script>
+import CreateTableGridJson from 'createTableGridJson';
+import CreateJson from 'tableGridJson';
+
+const { header, data } = CreateTableGridJson(10);
+
+const header1 = [
+    {
+        key: 'name',
+        text: '项目名称',
+        resizable: true,
+        fixed: 'left',
+        tip: { open: true, text: '项目名称项目名称' }
+    },
+    {
+        key: 'date',
+        text: '日期',
+        // fixed: 'left',
+        sort: {
+            open: true, type: 'date', status: 'ord', event: 'sortHandle'
+        },
+        resizable: true,
+        minWidth: 80,
+        tip: { open: true, text: '日期日期日期日期日期日期' }
+    },
+    {
+        key: 'strategyStatus',
+        text: '策略状态',
+        // fixed: 'left',
+        align: 'center',
+        hover: true,
+        sort: {
+            open: true, status: '', event: 'sortHandle'
+        },
+        /*
+        */
+        screen: {
+            status: 'multiple', // 筛选4种状态【'single', 'multiple', 'singleSearch', 'multipleSearch'】
+            open: true,
+            data: [
+                // { id: 'all', name: '全部' },
+                { id: 'executed', name: '已执行' },
+                { id: 'non-execution', name: '未执行' },
+                { id: 'audit', name: '审核中' },
+                { id: 'has-approval', name: '已审批' }
+            ],
+            event: 'screenHandle'
+        }
+    },
+    {
+        key: 'strategyTime',
+        text: '策略推送时间',
+        hover: true,
+        width: 320,
+        children: [
+            {
+                key: 'strategyTimeMonth1',
+                text: '1月',
+                color: 'red',
+                screen: {
+                    status: 'single', // 筛选4种状态【'single', 'multiple', 'singleSearch', 'multipleSearch'】
+                    open: true,
+                    icon: 'triangle', // screen triangle
+                    data: [
+                        { id: 'bj', name: '编辑数据' },
+                        { id: 'pz', name: '查看凭证' },
+                        { id: 'sx', name: '升序' },
+                        { id: 'jx', name: '降序' }
+                    ],
+                    event: 'screenHandle'
+                },
+                tip: { open: true, text: 'strategyTimeMonth1', iconColor: 'red-500' }
+            },
+            { key: 'strategyTimeMonth2', text: '2月' },
+            { key: 'strategyTimeMonth3', text: '3月' },
+            { key: 'strategyTimeMonth4', text: '4月' }
+        ]
+    },
+    {
+        key: 'executeTime',
+        text: '应执行时间',
+        // width: 320,
+        children: [
+            { key: 'executeTimeMonth1', text: '1月' },
+            { key: 'executeTimeMonth2', text: '2月' },
+            { key: 'executeTimeMonth3', text: '3月' },
+            { key: 'executeTimeMonth4', text: '4月' }
+        ]
+    }
+];
+const headerGroup = [
+    {
+        key: 'name',
+        text: '项目名称',
+        resizable: true,
+        fixed: 'left',
+        tip: { open: true, text: '项目名称项目名称' }
+    },
+    {
+        key: 'date',
+        text: '日期',
+        fixed: 'left',
+        sort: {
+            open: true, type: 'date', status: 'ord', event: 'sortHandle'
+        },
+        resizable: true,
+        minWidth: 80,
+        tip: { open: true, text: '日期日期日期日期日期日期' }
+    },
+    {
+        key: 'strategyStatus',
+        text: '策略状态',
+        fixed: 'left',
+        align: 'center'
+    },
+    {
+        key: 'strategyTime',
+        text: '策略推送时间',
+        width: 320
+    },
+    {
+        key: 'executeTime',
+        text: '应执行时间',
+        width: 280
+    }
+];
+const header2 = [
+    {
+        key: 'name',
+        text: '项目名称',
+        fixed: 'left',
+        sort: { open: true, event: 'sortHandle' }
+    },
+    {
+        key: 'date',
+        text: '日期',
+        sort: { open: true, event: 'sortHandle', type: 'date' }
+    },
+    {
+        key: 'strategyStatus',
+        text: '策略状态'
+    },
+    {
+        key: 'strategyTime',
+        text: '策略推送时间',
+        sort: { open: true, event: 'sortHandle' }
+    },
+    {
+        key: 'executeTime',
+        text: '应执行时间'
+    },
+    {
+        key: 'dataStatus',
+        text: '数据状态'
+    },
+    {
+        key: 'viscosityTemperature',
+        text: '室内最高温度(℃)',
+        sort: { open: true, event: 'sortHandle' }
+    },
+    {
+        key: 'outdoorTemperature',
+        text: '室外温度(℃)'
+    }
+];
+const header4 = [
+    {
+        key: 'name',
+        text: '姓名',
+        align: 'center',
+        fixed: 'left'
+    },
+    {
+        key: 'sex',
+        text: '性别',
+        align: 'center',
+        sort: { open: true, event: 'sortHandle' },
+        rowMerge: true
+    },
+    {
+        key: 'age',
+        text: '年龄',
+        align: 'center',
+        sort: { open: true, event: 'sortHandle', type: 'number' },
+        rowMerge: true
+    },
+    {
+        key: 'job',
+        text: '工作',
+        align: 'center',
+        fixed: 'right'
+    }
+];
+const data1 = [
+    {
+        id: '000000',
+        name: { text: '青阳万达广场0青阳万达广场0青阳万达广场0青阳万达广场0青阳万达广场0' },
+        date: { text: '2020.08.10' },
+        strategyStatus: { text: '已执行', dot: '#4eb1fd' },
+        childrenEvent: 'monthHandle',
+        link: true,
+        strategyTime: {
+            text: '06:30',
+            children: [
+                { headerKey: 'strategyTimeMonth1', text: '1', color: 'red' },
+                { headerKey: 'strategyTimeMonth2', text: '2' },
+                { headerKey: 'strategyTimeMonth3', text: '3' },
+                { headerKey: 'strategyTimeMonth4', text: '4' }
+            ]
+        },
+        executeTime: {
+            text: '01:10',
+            children: [
+                { headerKey: 'executeTimeMonth1', text: '1' },
+                { headerKey: 'executeTimeMonth2', text: '2' },
+                { headerKey: 'executeTimeMonth3', text: '3' },
+                { headerKey: 'executeTimeMonth4', text: '4' }
+            ]
+        },
+        tools: {
+            data: [
+                { id: 'tjbm', name: '添加部门' },
+                { id: 'tjgw', name: '添加岗位' },
+                { id: 'bj', name: '编辑' },
+                { id: 'sc', name: '删除' }
+            ],
+            moreOpen: true,
+            moreId: '',
+            more: [
+                { id: 'm1', name: 'more1', disabled: true },
+                { id: 'm2', name: 'more2' },
+                { id: 'm3', name: 'more3' }
+            ]
+        }
+    },
+    {
+        id: '001111',
+        name: { text: '青阳万达广场1' },
+        date: { text: '2020.08.11' },
+        strategyStatus: { text: '未执行', dot: '#f76b64' },
+        strategyTime: {
+            text: '06:30',
+            children: [
+                { headerKey: 'strategyTimeMonth1', text: '1' },
+                { headerKey: 'strategyTimeMonth2', text: '2' },
+                { headerKey: 'strategyTimeMonth3', text: '3' },
+                { headerKey: 'strategyTimeMonth4', text: '4' }
+            ]
+        },
+        executeTime: {
+            text: '01:10',
+            children: [
+                { headerKey: 'executeTimeMonth1', text: '1' },
+                { headerKey: 'executeTimeMonth2', text: '2' },
+                { headerKey: 'executeTimeMonth3', text: '3' },
+                { headerKey: 'executeTimeMonth4', text: '4' }
+            ]
+        },
+        tools: {
+            data: [
+                { id: 'tjbm', name: '添加部门' },
+                { id: 'tjgw', name: '添加岗位' },
+                { id: 'bj', name: '编辑' },
+                { id: 'sc', name: '删除' }
+            ],
+            moreOpen: true,
+            moreId: '',
+            more: [
+                { id: 'm1', name: 'more1' },
+                { id: 'm2', name: 'more2' },
+                { id: 'm3', name: 'more3' }
+            ]
+        }
+    },
+    {
+        id: '002222',
+        name: { text: '青阳万达广场2' },
+        date: { text: '2020.08.12' },
+        strategyStatus: { text: '审核中', dot: '#14e1c6' },
+        strategyTime: {
+            text: '06:30',
+            children: [
+                { headerKey: 'strategyTimeMonth1', text: '1' },
+                { headerKey: 'strategyTimeMonth2', text: '2' },
+                { headerKey: 'strategyTimeMonth3', text: '3' },
+                { headerKey: 'strategyTimeMonth4', text: '4' }
+            ]
+        },
+        executeTime: {
+            text: '01:10',
+            children: [
+                { headerKey: 'executeTimeMonth1', text: '1' },
+                { headerKey: 'executeTimeMonth2', text: '2' },
+                { headerKey: 'executeTimeMonth3', text: '3' },
+                { headerKey: 'executeTimeMonth4', text: '4' }
+            ]
+        },
+        tools: {
+            data: [
+                { id: 'tjbm', name: '添加部门' },
+                { id: 'tjgw', name: '添加岗位' },
+                { id: 'bj', name: '编辑' },
+                { id: 'sc', name: '删除' }
+            ],
+            moreOpen: true,
+            moreId: '',
+            more: [
+                { id: 'm1', name: 'more1' },
+                { id: 'm2', name: 'more2' },
+                { id: 'm3', name: 'more3' }
+            ]
+        }
+    },
+    {
+        id: '003333',
+        name: { text: '青阳万达广场3' },
+        date: { text: '2020.08.13' },
+        strategyStatus: { text: '已审批', dot: '#62d256' },
+        strategyTime: {
+            text: '06:30',
+            children: [
+                { headerKey: 'strategyTimeMonth1', text: '1' },
+                { headerKey: 'strategyTimeMonth2', text: '2' },
+                { headerKey: 'strategyTimeMonth3', text: '3' },
+                { headerKey: 'strategyTimeMonth4', text: '4' }
+            ]
+        },
+        executeTime: {
+            text: '01:10',
+            children: [
+                { headerKey: 'executeTimeMonth1', text: '1' },
+                { headerKey: 'executeTimeMonth2', text: '2' },
+                { headerKey: 'executeTimeMonth3', text: '3' },
+                { headerKey: 'executeTimeMonth4', text: '4' }
+            ]
+        },
+        tools: {
+            data: [
+                { id: 'tjbm', name: '添加部门' },
+                { id: 'tjgw', name: '添加岗位' },
+                { id: 'bj', name: '编辑' },
+                { id: 'sc', name: '删除' }
+            ],
+            moreOpen: true,
+            moreId: '',
+            more: [
+                { id: 'm1', name: 'more1' },
+                { id: 'm2', name: 'more2' },
+                { id: 'm3', name: 'more3' }
+            ]
+        }
+    },
+    {
+        id: '00444',
+        name: { text: '青阳万达广场4' },
+        date: { text: '2020.08.14' },
+        strategyStatus: { text: '已执行', dot: '#4eb1fd' },
+        strategyTime: {
+            text: '06:30',
+            children: [
+                { headerKey: 'strategyTimeMonth1', text: '1' },
+                { headerKey: 'strategyTimeMonth2', text: '2' },
+                { headerKey: 'strategyTimeMonth3', text: '3' },
+                { headerKey: 'strategyTimeMonth4', text: '4' }
+            ]
+        },
+        executeTime: {
+            text: '01:10',
+            children: [
+                { headerKey: 'executeTimeMonth1', text: '1' },
+                { headerKey: 'executeTimeMonth2', text: '2' },
+                { headerKey: 'executeTimeMonth3', text: '3' },
+                { headerKey: 'executeTimeMonth4', text: '4' }
+            ]
+        },
+        tools: {
+            data: [
+                { id: 'tjbm', name: '添加部门' },
+                { id: 'tjgw', name: '添加岗位' },
+                { id: 'bj', name: '编辑' },
+                { id: 'sc', name: '删除' }
+            ],
+            moreOpen: true,
+            moreId: '',
+            more: [
+                { id: 'm1', name: 'more1' },
+                { id: 'm2', name: 'more2' },
+                { id: 'm3', name: 'more3' }
+            ]
+        }
+    }
+];
+const dataGroup = [
+    {
+        id: 'xz',
+        groupName: '闲置',
+        open: true,
+        children: [
+            {
+                id: '000000',
+                name: { text: '青阳万达广场0闲置闲置闲置闲置闲置闲置闲置闲置闲置' },
+                date: { text: '2020.08.10' },
+                strategyStatus: { text: '已执行', dot: '#4eb1fd' },
+                strategyTime: { text: '06:30' },
+                executeTime: { text: '01:10' },
+                checked: 'checked'
+            },
+            {
+                id: '001111',
+                name: { text: '青阳万达广场1' },
+                date: { text: '2020.08.11' },
+                strategyStatus: { text: '未执行', dot: '#f76b64' },
+                strategyTime: { text: '06:30' },
+                executeTime: { text: '01:10' }
+            },
+            {
+                id: '002222',
+                name: { text: '青阳万达广场2' },
+                date: { text: '2020.08.12' },
+                strategyStatus: { text: '审核中', dot: '#14e1c6' },
+                strategyTime: { text: '06:30' },
+                executeTime: { text: '01:10' }
+            }
+        ]
+    },
+    {
+        id: 'jcz',
+        groupName: '检测中',
+        children: [
+            {
+                id: '000000',
+                name: { text: '青阳万达广场0检测中' },
+                date: { text: '2020.08.10' },
+                strategyStatus: { text: '已执行', dot: '#4eb1fd' },
+                strategyTime: { text: '06:30' },
+                executeTime: { text: '01:10' }
+            },
+            {
+                id: '001111',
+                name: { text: '青阳万达广场1' },
+                date: { text: '2020.08.11' },
+                strategyStatus: { text: '未执行', dot: '#f76b64' },
+                strategyTime: { text: '06:30' },
+                executeTime: { text: '01:10' }
+            },
+            {
+                id: '002222',
+                name: { text: '青阳万达广场2' },
+                date: { text: '2020.08.12' },
+                strategyStatus: { text: '审核中', dot: '#14e1c6' },
+                strategyTime: { text: '06:30' },
+                executeTime: { text: '01:10' }
+            }
+        ]
+    },
+    {
+        id: 'syz',
+        groupName: '使用中',
+        children: [
+            {
+                id: '000000',
+                name: { text: '青阳万达广场0使用中' },
+                date: { text: '2020.08.10' },
+                strategyStatus: { text: '已执行', dot: '#4eb1fd' },
+                strategyTime: { text: '06:30' },
+                executeTime: { text: '01:10' }
+            },
+            {
+                id: '001111',
+                name: { text: '青阳万达广场1' },
+                date: { text: '2020.08.11' },
+                strategyStatus: { text: '未执行', dot: '#f76b64' },
+                strategyTime: { text: '06:30' },
+                executeTime: { text: '01:10' }
+            },
+            {
+                id: '002222',
+                name: { text: '青阳万达广场2' },
+                date: { text: '2020.08.12' },
+                strategyStatus: { text: '审核中', dot: '#14e1c6' },
+                strategyTime: { text: '06:30' },
+                executeTime: { text: '01:10' }
+            }
+        ]
+    }
+];
+const data4 = [
+    {
+        id: '0001-1',
+        name: { text: '忠文' },
+        sex: { text: '男' },
+        age: { text: '18', color: '#f76b64' },
+        job: { text: '大佬' }
+    },
+    {
+        id: '0001-2',
+        name: { text: '小斯' },
+        sex: { text: '男' },
+        age: { text: '17' },
+        job: { text: '前端' }
+    },
+    {
+        id: '0001-21',
+        name: { text: '小1' },
+        sex: { text: '男' },
+        age: { text: '17' },
+        job: { text: '前端' }
+    },
+    {
+        id: '0001-22',
+        name: { text: '小2' },
+        sex: { text: '男' },
+        age: { text: '17' },
+        job: { text: '前端' }
+    },
+    {
+        id: '0001-3',
+        name: { text: '牟俊' },
+        sex: { text: '--' },
+        age: { text: '32' },
+        job: { text: '后端' }
+    },
+    {
+        id: '0001-4',
+        name: { text: '蒙东' },
+        sex: { text: '不详' },
+        age: { text: '32' },
+        job: { text: 'UX' }
+    },
+    {
+        id: '0001-41',
+        name: { text: '蒙东' },
+        sex: { text: '不详' },
+        age: { text: '32' },
+        job: { text: 'UX' }
+    }
+];
+const data5 = [
+    {
+        id: '0001-1',
+        name: { text: '忠文' },
+        sex: { text: '男' },
+        age: { text: '18', color: '#f76b64' },
+        job: { text: '大佬' }
+    },
+    {
+        id: '0001-2',
+        name: { text: '小斯' },
+        sex: { text: '男' },
+        age: { text: '17' },
+        job: { text: '前端' }
+    },
+    {
+        id: '0001-3',
+        name: { text: '牟俊' },
+        sex: { text: '女' },
+        age: { text: '32' },
+        job: { text: '后端' }
+    },
+    {
+        id: '0001-4',
+        name: { text: '蒙东' },
+        sex: { text: '不详' },
+        age: { text: '32' },
+        job: { text: 'UX' }
+    }
+];
+const topButton = [
+    {
+        id: 'btn0', text: '删除', type: 'default', event: 'topButtonHandle'
+    },
+    {
+        id: 'btn1', text: '下载', type: 'primary', event: 'topButtonHandle'
+    }
+];
+
+const dataSelect = [
+    { id: 'test1', name: '选择项' },
+    { id: 'test2', name: '单平米' },
+    { id: 'test3', name: '下级分项' },
+    { id: 'test4', name: '滑动平均滑动平均' }
+];
+const statistics = {
+    open: true,
+    id: 'statistics-id',
+    name: { text: '50' },
+    date: { text: '2020.08.11' },
+    strategyStatus: { text: '未执行', dot: '#f76b64' },
+    strategyTime: { text: '06:31' },
+    executeTime: { text: '01:11' },
+    dataStatus: { text: '正常1' },
+    viscosityTemperature: { text: 21 },
+    outdoorTemperature: { text: 31 }
+};
+
+// 列操作数据
+const rowTools = {
+    open: true, // 开启显示操作
+    openSelectedDisable: true, // 开启选中后禁用操作栏item
+    fixed: 'right', // 与header数据的fixed一样
+    width: 380, // 与header数据的width一样
+    align: '', // 与header数据的align一样
+    text: '', // 头部显示的文字，默认是操作
+    moreOpen: true,
+    event: 'rowToolHandle'
+};
+
+const header666 = [
+    {
+        text: '变压器名称',
+        key: 'devName'
+    },
+    {
+        text: '昨日报警次数',
+        sort: { type: 'number', open: true, event: 'sortHandle' },
+        key: 'yesterdayAlarmsNum'
+    },
+    {
+        text: '历史最大负载率',
+        sort: { type: 'number', open: true, event: 'sortHandle' },
+        key: 'historicalMaximumLoadRate'
+    },
+    {
+        text: '7日最大负载率',
+        sort: {
+            status: 'ord', type: 'number', open: true, event: 'sortHandle'
+        },
+        key: 'lastSevenDaysMaximumLoadRate'
+    },
+    {
+        text: '昨日最高温度',
+        sort: { type: 'number', open: true, event: 'sortHandle' },
+        key: 'yesterdayHighestTemperature'
+    },
+    {
+        text: '实时功率值',
+        sort: { type: 'number', open: true, event: 'sortHandle' },
+        key: 'realTimePower'
+    }
+];
+const data666 = [
+    {
+        devName: { text: '测试变压器-95' }, yesterdayAlarmsNum: { text: 78 }, historicalMaximumLoadRate: { text: '0.9' }, lastSevenDaysMaximumLoadRate: { text: 0.4 }, yesterdayHighestTemperature: { text: 46 }, realTimePower: { text: 85 }, yesterdayLoadRateAlarmNum: 37, yesterdayTemperatureAlarmNum: 93, weekLoadRateStatistics: [{ dateTime: 2516347093818, dayRated: 0.8 }, { dateTime: 1770690263095, dayRated: 0.8 }, { dateTime: 2540124209962, dayRated: 0.46 }, { dateTime: 9512718639191, dayRated: 0.47 }, { dateTime: 6460703827109, dayRated: 0.22 }, { dateTime: 6596504700666, dayRated: 0.95 }, { dateTime: 6975726972418, dayRated: 0.73 }]
+    }, {
+        devName: { text: '测试变压器-70' }, yesterdayAlarmsNum: { text: 10 }, historicalMaximumLoadRate: { text: '0.7' }, lastSevenDaysMaximumLoadRate: { text: 0.43 }, yesterdayHighestTemperature: { text: 84 }, realTimePower: { text: 34 }, yesterdayLoadRateAlarmNum: 54, yesterdayTemperatureAlarmNum: 60, weekLoadRateStatistics: [{ dateTime: 2008060384358, dayRated: 0.25 }, { dateTime: 9728520563266, dayRated: 0.74 }, { dateTime: 7188973423396, dayRated: 0.73 }, { dateTime: 4629958231163, dayRated: 0.87 }, { dateTime: 6947657799890, dayRated: 0.92 }, { dateTime: 6792647795665, dayRated: 0.7 }, { dateTime: 9343007734598, dayRated: 0.39 }]
+    }, {
+        devName: { text: '测试变压器-32' }, yesterdayAlarmsNum: { text: 30 }, historicalMaximumLoadRate: { text: '0.5' }, lastSevenDaysMaximumLoadRate: { text: 0.46 }, yesterdayHighestTemperature: { text: 19 }, realTimePower: { text: 41 }, yesterdayLoadRateAlarmNum: 56, yesterdayTemperatureAlarmNum: 61, weekLoadRateStatistics: [{ dateTime: 9080193015808, dayRated: 0.44 }, { dateTime: 608204117019, dayRated: 0.36 }, { dateTime: 7583672482051, dayRated: 0.13 }, { dateTime: 7081934614791, dayRated: 0.11 }, { dateTime: 9849627410389, dayRated: 0.89 }, { dateTime: 2006710968153, dayRated: 0.84 }, { dateTime: 6614387397074, dayRated: 0.78 }]
+    }, {
+        devName: { text: '测试变压器-20' }, yesterdayAlarmsNum: { text: 38 }, historicalMaximumLoadRate: { text: '0.5' }, lastSevenDaysMaximumLoadRate: { text: 0.47 }, yesterdayHighestTemperature: { text: 2 }, realTimePower: { text: 81 }, yesterdayLoadRateAlarmNum: 68, yesterdayTemperatureAlarmNum: 11, weekLoadRateStatistics: [{ dateTime: 6105532865735, dayRated: 0.49 }, { dateTime: 5169126266898, dayRated: 0.31 }, { dateTime: 9900136250131, dayRated: 0.89 }, { dateTime: 7610006165628, dayRated: 0.83 }, { dateTime: 8841704080073, dayRated: 0.57 }, { dateTime: 1752640437408, dayRated: 0.88 }, { dateTime: 6703513150293, dayRated: 0.27 }]
+    }, {
+        devName: { text: '测试变压器-17' }, yesterdayAlarmsNum: { text: 17 }, historicalMaximumLoadRate: { text: '0.2' }, lastSevenDaysMaximumLoadRate: { text: 0.84 }, yesterdayHighestTemperature: { text: 56 }, realTimePower: { text: 83 }, yesterdayLoadRateAlarmNum: 51, yesterdayTemperatureAlarmNum: 88, weekLoadRateStatistics: [{ dateTime: 7531749784760, dayRated: 0.51 }, { dateTime: 5625470664501, dayRated: 0.43 }, { dateTime: 1693343912610, dayRated: 0.47 }, { dateTime: 9616134900645, dayRated: 0.38 }, { dateTime: 5071562629644, dayRated: 0.54 }, { dateTime: 3692478338741, dayRated: 0.11 }, { dateTime: 3711505075121, dayRated: 0.68 }]
+    }, {
+        devName: { text: '测试变压器-46' }, yesterdayAlarmsNum: { text: 33 }, historicalMaximumLoadRate: { text: '0.9' }, lastSevenDaysMaximumLoadRate: { text: 0.33 }, yesterdayHighestTemperature: { text: 3 }, realTimePower: { text: 99 }, yesterdayLoadRateAlarmNum: 32, yesterdayTemperatureAlarmNum: 90, weekLoadRateStatistics: [{ dateTime: 9587175025838, dayRated: 0.49 }, { dateTime: 5305317712563, dayRated: 0.33 }, { dateTime: 3573212071813, dayRated: 0.39 }, { dateTime: 5807315911953, dayRated: 0.63 }, { dateTime: 6687455915232, dayRated: 0.22 }, { dateTime: 3995734397518, dayRated: 0.54 }, { dateTime: 3790165842736, dayRated: 0.77 }]
+    }, {
+        devName: { text: '测试变压器-28' }, yesterdayAlarmsNum: { text: 52 }, historicalMaximumLoadRate: { text: '0.5' }, lastSevenDaysMaximumLoadRate: { text: 0.25 }, yesterdayHighestTemperature: { text: 13 }, realTimePower: { text: 35 }, yesterdayLoadRateAlarmNum: 84, yesterdayTemperatureAlarmNum: 98, weekLoadRateStatistics: [{ dateTime: 3726497269845, dayRated: 0.26 }, { dateTime: 5253602991334, dayRated: 0.26 }, { dateTime: 9220437014980, dayRated: 1 }, { dateTime: 5131593424660, dayRated: 0.72 }, { dateTime: 4122444776953, dayRated: 0.06 }, { dateTime: 6067901832288, dayRated: 0.37 }, { dateTime: 5271646082882, dayRated: 0.08 }]
+    }, {
+        devName: { text: '测试变压器-3' }, yesterdayAlarmsNum: { text: 59 }, historicalMaximumLoadRate: { text: '0.3' }, lastSevenDaysMaximumLoadRate: { text: 0.05 }, yesterdayHighestTemperature: { text: 54 }, realTimePower: { text: 60 }, yesterdayLoadRateAlarmNum: 5, yesterdayTemperatureAlarmNum: 69, weekLoadRateStatistics: [{ dateTime: 2523374542928, dayRated: 0.64 }, { dateTime: 5311165318156, dayRated: 0.94 }, { dateTime: 9330173523697, dayRated: 0.2 }, { dateTime: 845628724734, dayRated: 0.9 }, { dateTime: 9411773696586, dayRated: 0.82 }, { dateTime: 3443419310437, dayRated: 0.19 }, { dateTime: 1848481036205, dayRated: 0.05 }]
+    }, {
+        devName: { text: '测试变压器-79' }, yesterdayAlarmsNum: { text: 31 }, historicalMaximumLoadRate: { text: '0.8' }, lastSevenDaysMaximumLoadRate: { text: 0.83 }, yesterdayHighestTemperature: { text: 92 }, realTimePower: { text: 67 }, yesterdayLoadRateAlarmNum: 48, yesterdayTemperatureAlarmNum: 98, weekLoadRateStatistics: [{ dateTime: 8994329429814, dayRated: 0.75 }, { dateTime: 6461600679774, dayRated: 0.53 }, { dateTime: 6752901744080, dayRated: 0.99 }, { dateTime: 409747789755, dayRated: 0 }, { dateTime: 4082673060472, dayRated: 0.39 }, { dateTime: 9665553548335, dayRated: 0.45 }, { dateTime: 6892168777677, dayRated: 0.02 }]
+    }, {
+        devName: { text: '测试变压器-10' }, yesterdayAlarmsNum: { text: 59 }, historicalMaximumLoadRate: { text: '0.5' }, lastSevenDaysMaximumLoadRate: { text: 0.22 }, yesterdayHighestTemperature: { text: 79 }, realTimePower: { text: 18 }, yesterdayLoadRateAlarmNum: 18, yesterdayTemperatureAlarmNum: 94, weekLoadRateStatistics: [{ dateTime: 2008331927109, dayRated: 0.69 }, { dateTime: 9977219688422, dayRated: 0.39 }, { dateTime: 8374938133566, dayRated: 0.82 }, { dateTime: 9180126107725, dayRated: 0.25 }, { dateTime: 6786220637192, dayRated: 0.33 }, { dateTime: 8294750649699, dayRated: 0.77 }, { dateTime: 5133646219871, dayRated: 0.27 }]
+    }, {
+        devName: { text: '测试变压器-34' }, yesterdayAlarmsNum: { text: 14 }, historicalMaximumLoadRate: { text: '0.6' }, lastSevenDaysMaximumLoadRate: { text: 0.84 }, yesterdayHighestTemperature: { text: 0 }, realTimePower: { text: 91 }, yesterdayLoadRateAlarmNum: 50, yesterdayTemperatureAlarmNum: 67, weekLoadRateStatistics: [{ dateTime: 3686509665815, dayRated: 0.21 }, { dateTime: 8378542369688, dayRated: 0.11 }, { dateTime: 5187751398431, dayRated: 0.13 }, { dateTime: 6641185349940, dayRated: 0.95 }, { dateTime: 7990800837365, dayRated: 0.75 }, { dateTime: 5650313628459, dayRated: 0.01 }, { dateTime: 5074068392522, dayRated: 0.04 }]
+    }, {
+        devName: { text: '测试变压器-72' }, yesterdayAlarmsNum: { text: 22 }, historicalMaximumLoadRate: { text: '0.8' }, lastSevenDaysMaximumLoadRate: { text: 0.68 }, yesterdayHighestTemperature: { text: 58 }, realTimePower: { text: 79 }, yesterdayLoadRateAlarmNum: 64, yesterdayTemperatureAlarmNum: 57, weekLoadRateStatistics: [{ dateTime: 772396495204, dayRated: 0.18 }, { dateTime: 1711632117252, dayRated: 0.71 }, { dateTime: 4427997982289, dayRated: 0.93 }, { dateTime: 2550074894581, dayRated: 0.51 }, { dateTime: 1623325243954, dayRated: 0.34 }, { dateTime: 1976239994257, dayRated: 0.55 }, { dateTime: 8902886337367, dayRated: 0.39 }]
+    }, {
+        devName: { text: '测试变压器-27' }, yesterdayAlarmsNum: { text: 93 }, historicalMaximumLoadRate: { text: '0.8' }, lastSevenDaysMaximumLoadRate: { text: 0.28 }, yesterdayHighestTemperature: { text: 10 }, realTimePower: { text: 33 }, yesterdayLoadRateAlarmNum: 36, yesterdayTemperatureAlarmNum: 77, weekLoadRateStatistics: [{ dateTime: 7275704302168, dayRated: 0.54 }, { dateTime: 2799727264854, dayRated: 0.21 }, { dateTime: 1213256633669, dayRated: 0.65 }, { dateTime: 3149790661161, dayRated: 0.7 }, { dateTime: 362893240878, dayRated: 0.16 }, { dateTime: 84607763722, dayRated: 0.01 }, { dateTime: 9632251219574, dayRated: 0.04 }]
+    }, {
+        devName: { text: '测试变压器-85' }, yesterdayAlarmsNum: { text: 39 }, historicalMaximumLoadRate: { text: '1.1' }, lastSevenDaysMaximumLoadRate: { text: 0.92 }, yesterdayHighestTemperature: { text: 13 }, realTimePower: { text: 53 }, yesterdayLoadRateAlarmNum: 37, yesterdayTemperatureAlarmNum: 36, weekLoadRateStatistics: [{ dateTime: 91331457730, dayRated: 0.47 }, { dateTime: 378131214149, dayRated: 0.98 }, { dateTime: 2212235690310, dayRated: 0.79 }, { dateTime: 6090058583724, dayRated: 0.53 }, { dateTime: 2531921058589, dayRated: 0.39 }, { dateTime: 9544529693447, dayRated: 0.05 }, { dateTime: 9826054588634, dayRated: 0.44 }]
+    }, {
+        devName: { text: '测试变压器-74' }, yesterdayAlarmsNum: { text: 97 }, historicalMaximumLoadRate: { text: '0.1' }, lastSevenDaysMaximumLoadRate: { text: 0.24 }, yesterdayHighestTemperature: { text: 43 }, realTimePower: { text: 51 }, yesterdayLoadRateAlarmNum: 22, yesterdayTemperatureAlarmNum: 44, weekLoadRateStatistics: [{ dateTime: 2785574253814, dayRated: 0.49 }, { dateTime: 6695572817478, dayRated: 0.51 }, { dateTime: 4824873594948, dayRated: 0.03 }, { dateTime: 9192732080471, dayRated: 0.67 }, { dateTime: 927610800448, dayRated: 0.98 }, { dateTime: 8300859003761, dayRated: 0.74 }, { dateTime: 4389433975699, dayRated: 0.8 }]
+    }, {
+        devName: { text: '测试变压器-14' }, yesterdayAlarmsNum: { text: 40 }, historicalMaximumLoadRate: { text: '0.3' }, lastSevenDaysMaximumLoadRate: { text: 0.6 }, yesterdayHighestTemperature: { text: 37 }, realTimePower: { text: 17 }, yesterdayLoadRateAlarmNum: 35, yesterdayTemperatureAlarmNum: 12, weekLoadRateStatistics: [{ dateTime: 231553616613, dayRated: 0.76 }, { dateTime: 1929150772100, dayRated: 0.44 }, { dateTime: 4276725262899, dayRated: 0.63 }, { dateTime: 9316332499231, dayRated: 0.69 }, { dateTime: 2584464689178, dayRated: 0.73 }, { dateTime: 4585092722665, dayRated: 0.92 }, { dateTime: 9860845071760, dayRated: 0.37 }]
+    }, {
+        devName: { text: '测试变压器-73' }, yesterdayAlarmsNum: { text: 81 }, historicalMaximumLoadRate: { text: '0.2' }, lastSevenDaysMaximumLoadRate: { text: 0.11 }, yesterdayHighestTemperature: { text: 77 }, realTimePower: { text: 66 }, yesterdayLoadRateAlarmNum: 8, yesterdayTemperatureAlarmNum: 60, weekLoadRateStatistics: [{ dateTime: 8698720129761, dayRated: 0.59 }, { dateTime: 7263168027993, dayRated: 0.47 }, { dateTime: 8798910601250, dayRated: 0.46 }, { dateTime: 8449656133579, dayRated: 0.57 }, { dateTime: 2261750045377, dayRated: 0.68 }, { dateTime: 48899157986, dayRated: 0.93 }, { dateTime: 229984415659, dayRated: 0.08 }]
+    }, {
+        devName: { text: '测试变压器-23' }, yesterdayAlarmsNum: { text: 74 }, historicalMaximumLoadRate: { text: '0.6' }, lastSevenDaysMaximumLoadRate: { text: 0.81 }, yesterdayHighestTemperature: { text: 95 }, realTimePower: { text: 74 }, yesterdayLoadRateAlarmNum: 68, yesterdayTemperatureAlarmNum: 25, weekLoadRateStatistics: [{ dateTime: 8199690874002, dayRated: 0.4 }, { dateTime: 1734759335540, dayRated: 0.88 }, { dateTime: 9768693693664, dayRated: 0.98 }, { dateTime: 677210171979, dayRated: 0.14 }, { dateTime: 88803994939, dayRated: 0.55 }, { dateTime: 1227647742389, dayRated: 0.85 }, { dateTime: 2699479461416, dayRated: 0.06 }]
+    }, {
+        devName: { text: '测试变压器-85' }, yesterdayAlarmsNum: { text: 28 }, historicalMaximumLoadRate: { text: '0.3' }, lastSevenDaysMaximumLoadRate: { text: 0.03 }, yesterdayHighestTemperature: { text: 20 }, realTimePower: { text: 30 }, yesterdayLoadRateAlarmNum: 12, yesterdayTemperatureAlarmNum: 93, weekLoadRateStatistics: [{ dateTime: 2685092294143, dayRated: 0.97 }, { dateTime: 5960635149277, dayRated: 0.65 }, { dateTime: 4980329582827, dayRated: 0.54 }, { dateTime: 9259698506214, dayRated: 0.63 }, { dateTime: 9342685509132, dayRated: 0.19 }, { dateTime: 1261229513651, dayRated: 0.08 }, { dateTime: 8141995538152, dayRated: 0.8 }]
+    }, {
+        devName: { text: '测试变压器-25' }, yesterdayAlarmsNum: { text: 62 }, historicalMaximumLoadRate: { text: '0.1' }, lastSevenDaysMaximumLoadRate: { text: 0.63 }, yesterdayHighestTemperature: { text: 63 }, realTimePower: { text: 75 }, yesterdayLoadRateAlarmNum: 9, yesterdayTemperatureAlarmNum: 67, weekLoadRateStatistics: [{ dateTime: 5722471660013, dayRated: 0.49 }, { dateTime: 893567765090, dayRated: 0.38 }, { dateTime: 4609186656750, dayRated: 0.21 }, { dateTime: 9896088531316, dayRated: 0.64 }, { dateTime: 2469408963756, dayRated: 0.79 }, { dateTime: 3799283015811, dayRated: 0.66 }, { dateTime: 2618737867990, dayRated: 0.82 }]
+    }
+];
+
+export default {
+    name: 'TableGridView',
+    data() {
+        return {
+            header, // 表头
+            header1, // 表头
+            header2, // 表头
+            header4, // 表头
+            statistics, // 统计
+            data,
+            data1,
+            data2: [],
+            data4,
+            topButton, // 顶部的button按钮
+            height: 200,
+            dataSelect1: JSON.parse(JSON.stringify(dataSelect)),
+            dataMarge: [],
+            rowTools,
+            headerGroup,
+            dataGroup,
+            header666,
+            data666
+        };
+    },
+    mounted() {
+        // this.header1 = header;
+        setTimeout(() => {
+            // this.data1 = JSON.parse(JSON.stringify(data));
+            this.data2 = JSON.parse(JSON.stringify(data1));
+        }, 0);
+        const dataJson = CreateJson(20);
+        this.dataMarge = dataJson;
+    },
+    methods: {
+        // 筛选
+        screenHandle(key, id, parentKey) {
+            console.log('筛选::', key, id, parentKey);
+        },
+        // 排序回调
+        sortHandle(status, key) {
+            console.log('status::', status, 'key::', key);
+            // this.data2 = this.data2.reverse();
+        },
+        // 选中的数据
+        selectHandle(ids, data) {
+            console.log('选中的数据:::', ids, data);
+        },
+        // 顶部按钮回调
+        topButtonHandle(id) {
+            console.log('顶部按钮回调::', id);
+        },
+        // 每列操作回调
+        rowToolHandle({ itemId, toolId }) {
+            const { data1 } = this;
+            console.log('每列操作回调::', itemId, toolId);
+            // const dataFilter = data1.filter(d => d.id !== itemId);
+            // console.log(dataFilter);
+            // this.data1 = dataFilter;
+        },
+
+        dataSelectChange(data) {
+            console.log(data);
+        },
+        noteHandle(item) {
+            console.log('noteHandle', item);
+        },
+        settingReset(type) {
+            console.log('settingReset', type);
+        },
+        // 当前拖动的宽度
+        resizableHandle(w) {
+            console.log('当前拖动的宽度::', w);
+        },
+        // 点击月的自定义函数
+        monthHandle(obj) {
+            console.log('点击月的自定义函数::', obj);
+        },
+        aaaFn() {
+            this.$refs.tableGrid.closeTopBar();
+        },
+        changeDataCheck() {
+            this.data = [
+                {
+                    id: '000000',
+                    name: { text: '青阳万达广场0青阳万达广场0青阳万达广场0青阳万达广场0青阳万达广场0' },
+                    date: { text: '2020.08.10' },
+                    strategyStatus: { text: '已执行', dot: '#4eb1fd' },
+                    strategyTime: { text: '06:30' },
+                    executeTime: { text: '01:10' },
+                    dataStatus: { text: '异常', color: '#f00' },
+                    viscosityTemperature: { text: 20 },
+                    outdoorTemperature: { text: 30 },
+                    checked: 'checked',
+                    tools: {
+                        data: [
+                            { id: 'tjbm', name: '添加部门', disabled: true },
+                            { id: 'tjgw', name: '添加岗位', disabled: true },
+                            { id: 'bj', name: '编辑' },
+                            { id: 'sc', name: '删除' }
+                        ],
+                        moreOpen: true,
+                        moreId: '',
+                        more: [
+                            { id: 'm1', name: 'more1', disabled: true },
+                            { id: 'm2', name: 'more2' },
+                            { id: 'm3', name: 'more3' }
+                        ]
+                    }
+                },
+                {
+                    id: '001111',
+                    name: { text: '青阳万达广场1' },
+                    date: { text: '2020.08.11' },
+                    strategyStatus: { text: '未执行', dot: '#f76b64' },
+                    strategyTime: { text: '06:31' },
+                    executeTime: { text: '01:11' },
+                    dataStatus: { text: '正常1' },
+                    viscosityTemperature: { text: 21 },
+                    outdoorTemperature: { text: 31 },
+                    checked: 'checked',
+                    tools: {
+                        data: [
+                            { id: 'tjbm', name: '添加部门' },
+                            { id: 'tjgw', name: '添加岗位' },
+                            { id: 'bj', name: '编辑' },
+                            { id: 'sc', name: '删除' }
+                        ]
+                    }
+                },
+                {
+                    id: '002222',
+                    name: { text: '青阳万达广场2' },
+                    date: { text: '2020.08.12' },
+                    strategyStatus: { text: '审核中', dot: '#14e1c6' },
+                    strategyTime: { text: '06:32' },
+                    executeTime: { text: '01:12' },
+                    dataStatus: { text: '正常2' },
+                    viscosityTemperature: { text: 22 },
+                    outdoorTemperature: { text: 32 },
+                    tools: {
+                        data: [
+                            { id: 'tjbm', name: '添加部门' },
+                            { id: 'tjgw', name: '添加岗位' },
+                            { id: 'bj', name: '编辑' },
+                            { id: 'sc', name: '删除' }
+                        ]
+                    }
+                },
+                {
+                    id: '003333',
+                    name: { text: '青阳万达广场3' },
+                    date: { text: '2020.08.13' },
+                    strategyStatus: { text: '已审批', dot: '#62d256' },
+                    strategyTime: { text: '06:33' },
+                    executeTime: { text: '01:13' },
+                    dataStatus: { text: '正常3' },
+                    viscosityTemperature: { text: 23 },
+                    outdoorTemperature: { text: 33 },
+                    tools: {
+                        data: [
+                            { id: 'bj', name: '编辑' },
+                            { id: 'sc', name: '删除' }
+                        ]
+                    }
+                },
+                {
+                    id: '00444',
+                    name: { text: '青阳万达广场4' },
+                    date: { text: '2020.08.14' },
+                    strategyStatus: { text: '已执行', dot: '#4eb1fd' },
+                    strategyTime: { text: '06:34' },
+                    executeTime: { text: '01:14' },
+                    dataStatus: { text: '正常4' },
+                    viscosityTemperature: { text: 24 },
+                    outdoorTemperature: { text: 34 },
+                    tools: {
+                        data: [
+                            { id: 'bj', name: '编辑' },
+                            { id: 'sc', name: '删除' }
+                        ]
+                    }
+                }
+            ];
+        },
+        rowClick(item) {
+            console.log('item::::', item);
+        }
+    }
+};
+</script>
+
+<style lang="stylus">
+.tableGridView
+    padding 20px
+.row-tool,
+.span-text
+    font-size 14px
+
+</style>
