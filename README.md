@@ -1,5 +1,4 @@
 # meri-design-dev：
-- 基于vue的ui库，github地址 `ssh://git@101.254.183.198:5522/xiongshuang/meri-design-dev.git`
 
 ## config
 - 开发预览 `dev.js`
