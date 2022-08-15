@@ -33,9 +33,14 @@
                     v-if="show && (mode==='default' || mode==='small' || mode==='middle' || mode==='large')"
                     :mode="mode"
                     :title="title"
+                    :custonTitle="custonTitle"
                     :componentId="componentId"
                     @close="close"
             >
+                <template #custonTitle>
+                    <!-- @slot html内容 -->
+                    <slot name="custonTitle"/>
+                </template>
                 <template #default>
                     <!-- @slot html内容 -->
                     <slot name="content"/>
@@ -92,6 +97,13 @@ export default {
             type: Boolean,
             default: false,
             required: true
+        },
+        /**
+         * 自定义标题
+         */
+         custonTitle:{
+            type:Boolean,
+            default:false
         },
         /**
          * 模态框标题
