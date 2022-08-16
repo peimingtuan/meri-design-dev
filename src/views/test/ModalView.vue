@@ -19,11 +19,19 @@ v<template>
                     :show="modalStatusTip"
                     mode="tip"
                     type="info"
+                    title="1"
+                    :customTitle="true"
                     @close="modalClose"
                     @confirm="modalConfirm"
             >
+                <template #customTitle>
+                    除)
+                </template>
                 <template #content>
                     This is a message. 弹窗最小高度144px，最大高度166px (该对话框仅用于删除)
+                </template>
+                <template>
+                    <div>234</div>
                 </template>
 <!--                <template #handle>-->
 <!--                    <Button @click="modalClose" type="default">close</Button>-->

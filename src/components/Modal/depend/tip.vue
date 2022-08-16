@@ -5,7 +5,8 @@
             <ErrorRedSvg v-else />
         </section>
         <div class="p-modal-title" v-if="title">
-            <section class="p-title-text">{{title}}</section>
+            <section class="p-title-text" v-if="customTitle"><slot name="customTitle"/></section>
+            <section class="p-title-text" v-else>{{title}}</section>
         </div>
         <div class="p-modal-content">
             <div class="p-modal-content-main">
@@ -32,6 +33,10 @@ export default {
         title: {
             type: String,
             default: ''
+        },
+        customTitle:{
+            type:Boolean,
+            default:false
         },
         type: {
             type: String,

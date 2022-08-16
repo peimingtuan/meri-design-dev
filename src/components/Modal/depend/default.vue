@@ -4,7 +4,7 @@
             :style="{left: modalMainLeft+'px', top: modalMainTop+'px'}"
     >
         <div class="p-modal-title">
-            <section class="p-title-text" v-if="custonTitle"><slot name="custonTitle"/></section>
+            <section class="p-title-text" v-if="customTitle"><slot name="customTitle"/></section>
             <section class="p-title-text" v-else>{{title}}</section>
             <i class="p-modal-title-icon" @click="$emit('close')">
                 <Close />
@@ -30,7 +30,7 @@ export default {
     name: 'Default',
     components: { Close },
     props: {
-        custonTitle:{
+        customTitle:{
             type:Boolean,
             default:false
         },

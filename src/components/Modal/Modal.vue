@@ -10,10 +10,14 @@
                     :style="{zIndex: secondary&&zIndex}"
                     v-if="show && mode==='tip'"
                     :title="title"
+                    :customTitle="customTitle"
                     :type="type"
                     :componentId="componentId"
                     @close="close"
             >
+                <template #customTitle>
+                    <slot name="customTitle"/>
+                </template>
                 <template #content>
                     <slot name="content"/>
                 </template>
@@ -33,13 +37,13 @@
                     v-if="show && (mode==='default' || mode==='small' || mode==='middle' || mode==='large')"
                     :mode="mode"
                     :title="title"
-                    :custonTitle="custonTitle"
+                    :customTitle="customTitle"
                     :componentId="componentId"
                     @close="close"
             >
-                <template #custonTitle>
+                <template #customTitle>
                     <!-- @slot html内容 -->
-                    <slot name="custonTitle"/>
+                    <slot name="customTitle"/>
                 </template>
                 <template #default>
                     <!-- @slot html内容 -->
@@ -101,7 +105,7 @@ export default {
         /**
          * 自定义标题
          */
-         custonTitle:{
+        customTitle:{
             type:Boolean,
             default:false
         },
