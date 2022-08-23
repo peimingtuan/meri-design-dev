@@ -37,7 +37,8 @@
                 @change="changeFileChose"
             />
             <span class="p-name">点击或将文件拖拽到这里上传（{{renderFileList.length + '/' + limitMaxNumber}}）</span>
-            <span class="p-tips p-tips-accept">支持扩展名：{{accept.join(' ')}}</span>
+            <span class="p-tips p-tips-accept" v-if="defaultDescription">仅支持{{accept.join('、')}}格式</span>
+            <span class="p-tips p-tips-accept" v-else>支持扩展名：{{accept.join(' ')}}</span>
         </div>
         <div
             v-if="type === 'mobile' && !previewMode && isShowTrigger"
@@ -199,6 +200,13 @@ export default {
         showTrigger: {
             type: Boolean,
             default: true
+        },
+        /**
+         *
+         */
+        defaultDescription:{
+            type: Boolean,
+            default: false
         },
         maxFileSize: {
             type: Number,

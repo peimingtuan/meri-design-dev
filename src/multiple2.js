@@ -33,7 +33,7 @@ import Checkbox from './components/Checkbox';
 // import Radio from './components/Radio';
 // import RadioGroup from './components/RadioGroup';
 // import Avatar from './components/Avatar';
-// import FileUpload from './components/FileUpload';
+ import FileUpload from './components/FileUpload';
 // import ImageUpload from './components/ImageUpload';
 // import Table from './components/Table';
 import TableGrid from './components/TableGrid';
@@ -111,7 +111,7 @@ const Components = {
     // Transfer,
      TransferSelectModal,
     // Avatar,
-    // FileUpload,
+     FileUpload,
     // ImageUpload,
     // Table,
     TableGrid,

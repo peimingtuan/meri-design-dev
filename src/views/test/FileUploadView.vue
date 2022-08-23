@@ -29,10 +29,11 @@
                 </section>
                 <FileUpload
                     type="drop"
-                    hosts="http://192.168.100.236:80/api"
-                    action="/upload/meos"
+                    hosts="http://zhongjun-test.persagy.com/api"
+                    action="/upload/daas"
                     :maxNumber="1"
                     :multiple="false"
+                    :defaultDescription="true"
                     @change="changeFile"
                     :previewMode="false"
                     :defaultFileList="defaultFileList"
